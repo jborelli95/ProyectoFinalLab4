@@ -25,3 +25,35 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Notes:
+
+Trabajamos el proyecto con una base de angular cli v16.2
+implementamos bootstrap v5.3.2
+jquery v3.7.1
+Poppers v1.16.1
+
+Como instalamos los implementos:
+
+Utilizando comandos para  el Node Package Manager(npm),
+
+1- npm i bootstrap@5.3.2 (se instala bootstrap)
+
+2- npm i jquery popper.js --save (se instala jquery y poppers)
+
+3- Modificar el archivo angular.sjon en la raiz del proyecto, con lo siguiente:
+
+"styles": [
+    "src/styles.css",
+    "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+],
+
+"scripts": [
+    "./node_modules/jquery/dist/jquery.min.js",
+	"./node_modules/popper.js/dist/umd/popper.min.js",
+	"./node_modules/bootstrap/dist/js/bootstrap.min.js"
+]
+
+Ya finalizariamos la isntalación.
+
+
