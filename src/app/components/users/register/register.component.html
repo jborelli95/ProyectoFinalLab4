@@ -1,46 +1,45 @@
-<section>
-    <form class="row g-3">
-        <div class="col-md-6">
-          <label for="inputEmail4" class="form-label">Email</label>
-          <input type="email" class="form-control" id="inputEmail4">
-        </div>
-        <div class="col-md-6">
-          <label for="inputPassword4" class="form-label">Password</label>
-          <input type="password" class="form-control" id="inputPassword4">
-        </div>
-        <div class="col-12">
-          <label for="inputAddress" class="form-label">Address</label>
-          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-        </div>
-        <div class="col-12">
-          <label for="inputAddress2" class="form-label">Address 2</label>
-          <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-        </div>
-        <div class="col-md-6">
-          <label for="inputCity" class="form-label">City</label>
-          <input type="text" class="form-control" id="inputCity">
-        </div>
-        <div class="col-md-4">
-          <label for="inputState" class="form-label">State</label>
-          <select id="inputState" class="form-select">
-            <option selected>Choose...</option>
-            <option>...</option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <label for="inputZip" class="form-label">Zip</label>
-          <input type="text" class="form-control" id="inputZip">
-        </div>
-        <div class="col-12">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck">
-            <label class="form-check-label" for="gridCheck">
-              Check me out
-            </label>
-          </div>
-        </div>
-        <div class="col-12">
-          <button type="submit" class="btn btn-primary">Sign in</button>
-        </div>
-      </form>
+<section class="form-container">
+  <form class="row g-3 form-register">
+    <div class="col-md-6">
+      <label for="username" class="col-form-label col-form-label-sm">Nombre de usuario</label>
+      <input type="text" class="form-control form-control-sm" id="username">
+    </div>
+    <div class="col-md-6">
+      <label for="password" class="col-form-label col-form-label-sm">Contraseña</label>
+      <input type="password" class="form-control form-control-sm" id="password">
+    </div>
+    <div class="col-md-6">
+      <label for="firstName" class="col-form-label col-form-label-sm">Nombre</label>
+      <input type="text" class="form-control form-control-sm" id="firstName">
+    </div>
+    <div class="col-md-6">
+      <label for="lastName" class="col-form-label col-form-label-sm">Apellido</label>
+      <input type="text" class="form-control form-control-sm" id="lastName">
+    </div>
+    <div class="col-12">
+      <label for="email" class="col-form-label col-form-label-sm">Email</label>
+      <input type="email" class="form-control form-control-sm" id="email" placeholder="ejemplo@ejemplo.com">
+    </div>
+    <div class="col-md-4">
+      <label for="country" class="col-form-label col-form-label-sm">Pais</label>
+      <select id="country" class="form-select form-select-sm">
+        <option selected>Choose...</option>
+        <option>...</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label for="provincia" class="col-form-label col-form-label-sm">Provincia</label>
+      <select id="provincia" class="form-select form-select-sm">
+        <option selected>Choose...</option>
+        <option>...</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label for="city" class="col-form-label col-form-label-sm">Ciudad</label>
+      <input type="text" class="form-control form-control-sm" id="city">
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary btn-sm">Registrarse</button>
+    </div>
+  </form>
 </section>
