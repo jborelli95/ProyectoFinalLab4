@@ -1,5 +1,17 @@
 {
-    "users": [
-        
-    ]
+  "users": [
+    {
+      "username": "Zavilon",
+      "password": "asdasd",
+      "firstName": "Juan Ignacio",
+      "lastName": "Borelli",
+      "email": "test@testing.com",
+      "city": "Mar del Plata",
+      "state": "Buenos Aires",
+      "country": "Argentina",
+      "startedDate": "1/11/2023",
+      "favoriteTeam": 0,
+      "id": 1
+    }
+  ]
 }

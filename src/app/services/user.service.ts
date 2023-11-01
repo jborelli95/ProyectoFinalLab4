@@ -12,7 +12,7 @@ export class UserService {
 
   /**Vamos con el CRUD de Usuarios... Create, Read, Update, Delete */
 
-  async postCliente(user: User) {
+  async postUser(user: User) {
     try {
       await fetch(this.urlUsers, {
         method: "POST",
@@ -28,5 +28,37 @@ export class UserService {
       console.log(err);
     }
 
+  }
+
+  async getUsers(): Promise<User[] | undefined>{
+    try{
+      const resultado = await fetch(this.urlUsers, {
+        method:"GET"
+      });
+  
+      const usuarios = await resultado.json();
+  
+      return usuarios;
+    }catch(err){
+      console.log(err);
+    }
+
+    return undefined;
+  }
+
+  async getUser(id:number): Promise<User | undefined>{
+    try{
+      const resultado = await fetch(this.urlUsers.concat(`/${id}`), {
+        method:"GET"
+      });
+
+      const dato = await resultado.json();
+
+      return dato;
+    }catch(err){
+      console.log(err);
+    }
+
+    return undefined;
   }
 }

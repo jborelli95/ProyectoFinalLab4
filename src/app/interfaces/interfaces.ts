@@ -12,3 +12,10 @@ export interface User{
     favoriteTeam:number,
     id:number
 }
+
+export interface Countrie {
+    code: string
+    code3: string
+    name: string
+    number: string
+}
