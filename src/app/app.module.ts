@@ -9,6 +9,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { RegisterComponent } from './components/users/register/register.component';
+import { InicioComponent } from './components/uefa/inicio/inicio.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { RegisterComponent } from './components/users/register/register.componen
     HomePageComponent,
     LoginPageComponent,
     RegisterPageComponent,
-    RegisterComponent
+    RegisterComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,

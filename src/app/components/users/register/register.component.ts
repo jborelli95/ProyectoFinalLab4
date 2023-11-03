@@ -41,7 +41,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private userService: UserService) { }
+    private userService: UserService) {}
 
   /**Funcion que registra a un usario */
   registrarUsuario() {

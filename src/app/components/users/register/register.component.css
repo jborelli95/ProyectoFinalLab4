@@ -2,10 +2,14 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-top: 5rem;
 }
 
 .form-register{
+    background-color:rgba(49, 3, 95, 0.685);
+    padding: 2rem;
     width: 40%;
+    color: white;
 }
 
 .reset {

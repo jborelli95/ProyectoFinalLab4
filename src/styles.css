@@ -14,7 +14,7 @@ html {
 
 body{
     margin: 0;
-    background: rgb(224, 224, 224) !important;
+    background: none;
 }
 
 .logo{
@@ -31,7 +31,3 @@ body{
 .barra-busqueda form{
     width: 30%;
 }*/
-header{
-
-}
-
