@@ -1,42 +1,42 @@
 <section class="form-container">
-  <form class="row g-3 form-register" [formGroup]="form" (ngSubmit)="registrarUsuario()">
+  <form class="row g-3 form-visuals" [formGroup]="form" (ngSubmit)="registrarUsuario()">
     <div class="col-md-6">
-      <label for="username" class="col-form-label col-form-label-sm fs-2">Nombre de usuario</label>
-      <input type="text" class="form-control form-control-sm fs-2" id="username" formControlName="username">
+      <label for="username" class="col-form-label col-form-label-sm fs-3">Nombre de usuario</label>
+      <input type="text" class="form-control form-control-sm fs-3" id="username" formControlName="username">
     </div>
     <div class="col-md-6">
-      <label for="password" class="col-form-label col-form-label-sm fs-2">Contraseña</label>
-      <input type="password" class="form-control form-control-sm fs-2" id="password" formControlName="password">
+      <label for="password" class="col-form-label col-form-label-sm fs-3">Contraseña</label>
+      <input type="password" class="form-control form-control-sm fs-3" id="password" formControlName="password">
     </div>
     <div class="col-md-6">
-      <label for="firstName" class="col-form-label col-form-label-sm fs-2">Nombre</label>
-      <input type="text" class="form-control form-control-sm fs-2" id="firstName" formControlName="firstName">
+      <label for="firstName" class="col-form-label col-form-label-sm fs-3">Nombre</label>
+      <input type="text" class="form-control form-control-sm fs-3" id="firstName" formControlName="firstName">
     </div>
     <div class="col-md-6">
-      <label for="lastName" class="col-form-label col-form-label-sm fs-2">Apellido</label>
-      <input type="text" class="form-control form-control-sm fs-2" id="lastName" formControlName="lastName">
+      <label for="lastName" class="col-form-label col-form-label-sm fs-3">Apellido</label>
+      <input type="text" class="form-control form-control-sm fs-3" id="lastName" formControlName="lastName">
     </div>
     <div class="col-12">
-      <label for="email" class="col-form-label col-form-label-sm fs-2">Email</label>
-      <input type="email" class="form-control form-control-sm fs-2" id="email" placeholder="ejemplo@ejemplo.com" formControlName="email">
+      <label for="email" class="col-form-label col-form-label-sm fs-3">Email</label>
+      <input type="email" class="form-control form-control-sm fs-3" id="email" placeholder="ejemplo@ejemplo.com" formControlName="email">
     </div>
     <div class="col-md-4">
-      <label for="country" class="col-form-label col-form-label-sm fs-2">Pais</label>
-      <select id="country" class="form-select form-select-sm fs-2" formControlName="country">
+      <label for="country" class="col-form-label col-form-label-sm fs-3">Pais</label>
+      <select id="country" class="form-select form-select-sm fs-3" formControlName="country">
         <option selected>Elige un país...</option>
         <option *ngFor="let country of countriesList" [value]="country.name">{{country.name}}</option>
       </select>
     </div>
     <div class="col-md-4">
-      <label for="state" class="col-form-label col-form-label-sm fs-2">Provincia o Estado</label>
-      <input type="text" class="form-control form-control-sm fs-2" id="state" formControlName="state">
+      <label for="state" class="col-form-label col-form-label-sm fs-3">Provincia o Estado</label>
+      <input type="text" class="form-control form-control-sm fs-3" id="state" formControlName="state">
     </div>
     <div class="col-md-4">
-      <label for="city" class="col-form-label col-form-label-sm fs-2">Ciudad</label>
-      <input type="text" class="form-control form-control-sm fs-2" id="city" formControlName="city">
+      <label for="city" class="col-form-label col-form-label-sm fs-3">Ciudad</label>
+      <input type="text" class="form-control form-control-sm fs-3" id="city" formControlName="city">
     </div>
     <div class="col-12">
-      <button type="submit" class="btn btn-primary btn-sm fs-2">Registrarse</button>
+      <button type="submit" class="btn btn-primary btn-sm fs-3">Registrarse</button>
     </div>
   </form>
 </section>
