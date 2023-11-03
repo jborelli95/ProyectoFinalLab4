@@ -1,0 +1,56 @@
+.seccion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 4rem;
+}
+
+.seccion h1 {
+    color: white;
+    font-size: 4rem;
+    margin-left: 5rem;
+    margin-bottom: 3rem;
+}
+
+.momentos-destacados {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: rgba(49, 3, 95, 0.685);
+    border-radius: 1rem;
+}
+
+.moment {
+    margin: 2rem;
+    border-radius: .2rem;
+    justify-content: center;
+    border: 1px solid white;
+}
+
+.moment:hover {
+    transform: scale(1.05); /* Aumenta el tamaño del elemento en un 5% cuando se hace hover */
+    transition: transform 0.3s; /* Agrega una transición suave para que no sea brusco */
+}
+
+.moment a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    font-size: 2rem;
+    text-decoration: none;
+    color:  rgba(49, 3, 95)    ;
+}
+
+.moment img {
+    max-width: 100%; /* Limita el ancho máximo de la imagen */
+}
+.seccion2{
+    background-color: white;
+    height: 20rem;
+    margin: 0;
+}
+footer{
+    background-color: white;
+}

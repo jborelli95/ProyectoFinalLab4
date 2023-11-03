@@ -21,6 +21,24 @@ body{
     height: 70px;
     margin-right: 2rem;
 }
+
+.navbar{
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgb(216, 207, 207);
+}
+.form-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+}
+.form-visuals{
+    background-color:rgba(49, 3, 95, 0.685);
+    padding: 2rem;
+    width: 40%;
+    color: white;
+}
+
 /*
 .barra-busqueda{
     display: flex;

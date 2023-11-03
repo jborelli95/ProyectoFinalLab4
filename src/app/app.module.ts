@@ -10,6 +10,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { RegisterComponent } from './components/users/register/register.component';
 import { InicioComponent } from './components/uefa/inicio/inicio.component';
+import { LoginComponent } from './components/users/login/login.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { InicioComponent } from './components/uefa/inicio/inicio.component';
     LoginPageComponent,
     RegisterPageComponent,
     RegisterComponent,
-    InicioComponent
+    InicioComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
