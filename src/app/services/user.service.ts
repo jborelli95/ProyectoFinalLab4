@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../interfaces/interfaces';
+import { HttpClient } from '@angular/common/http';
+import { Observable, catchError, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +10,13 @@ import { User } from '../interfaces/interfaces';
 export class UserService {
 
   urlUsers: string = "http://localhost:4000/users";
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private http: HttpClient) { }
 
   /**Vamos con el CRUD de Usuarios... Create, Read, Update, Delete */
+  /**Dejamos las funciones fetch previamente programadas y empezamos con observables */
 
+  //**Post con fetch */
   async postUser(user: User) {
     try {
       await fetch(this.urlUsers, {
@@ -23,42 +28,85 @@ export class UserService {
       })
 
       this.router.navigate(["home"]);
-      
+
     } catch (err) {
       console.log(err);
     }
-
   }
 
-  async getUsers(): Promise<User[] | undefined>{
-    try{
+  /**Post con request http angular y observables */
+  postUserHttp(user: User): Observable<User> {
+    return this.http.post<User>(
+      this.urlUsers,
+      user,
+      { headers: { "Content-type": "application/json" } }
+    );
+  }
+
+  /**Get de UserS con fetch */
+  async getUsers(): Promise<User[] | undefined> {
+    try {
       const resultado = await fetch(this.urlUsers, {
-        method:"GET"
+        method: "GET"
       });
-  
+
       const usuarios = await resultado.json();
-  
+
       return usuarios;
-    }catch(err){
+    } catch (err) {
       console.log(err);
     }
 
     return undefined;
   }
 
-  async getUser(id:number): Promise<User | undefined>{
-    try{
+  /**Get de User con fetch */
+  async getUser(id: number): Promise<User | undefined> {
+    try {
       const resultado = await fetch(this.urlUsers.concat(`/${id}`), {
-        method:"GET"
+        method: "GET"
       });
 
       const dato = await resultado.json();
 
       return dato;
-    }catch(err){
+    } catch (err) {
       console.log(err);
     }
 
     return undefined;
+  }
+
+  /**Get de UserS con hhtp request de angular y observables */
+  getUsersHttp(): Observable<User[]> {
+    return this.http.get<User[]>(this.urlUsers)
+      .pipe(
+        catchError((error: any) => {
+          console.log("Ha ocurrido un error en la solicitud HTTP!: " + error);
+          return throwError(() => error);
+        })
+      )
+  }
+
+  /**Get un usario en concreto conh observables... */
+  getUserHttp(id: number): Observable<User> {
+    return this.http.get<User>(this.urlUsers.concat(`/${id}`))
+      .pipe(
+        catchError((error: any) => {
+          console.log("Ha ocurrido un error en la solicitud HTTP de un usario!: " + error);
+          return throwError(() => error);
+        })
+      )
+  }
+
+  /**Delete usuario con observable y Http request de angular */
+  deleteUserHttp(id: number): Observable<User> {
+    return this.http.delete<User>(this.urlUsers.concat(`/${id}`))
+      .pipe(
+        catchError((error: any) => {
+          console.log("Ha ocurrido un error en la solicitud HTTP de eliminar al usuario con la id: " + id + "!");
+          return throwError(() => error);
+        })
+      )
   }
 }
