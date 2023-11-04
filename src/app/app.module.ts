@@ -11,7 +11,7 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
 import { RegisterComponent } from './components/users/register/register.component';
 import { InicioComponent } from './components/uefa/inicio/inicio.component';
 import { LoginComponent } from './components/users/login/login.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,8 @@ import { LoginComponent } from './components/users/login/login.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
