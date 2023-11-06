@@ -3,13 +3,15 @@ import { Router } from '@angular/router';
 import { User } from '../interfaces/interfaces';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
+import { environments } from 'src/environments/environments';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  urlUsers: string = "http://localhost:4000/users";
+  urlUsers: string = environments.baseUrl.concat("/users");
+
   constructor(private router: Router,
     private http: HttpClient) { }
 
@@ -108,5 +110,14 @@ export class UserService {
           return throwError(() => error);
         })
       )
+  }
+
+  /**Put de Usuario Http */
+  putUserHttp(user:User): Observable<User>{
+    return this.http.put<User>(
+      this.urlUsers.concat(`/${user.id}`),
+      user,
+      {headers: { "Content-type":"application/json" }}
+    )
   }
 }

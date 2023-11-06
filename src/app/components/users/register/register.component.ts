@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Countrie, User } from 'src/app/interfaces/interfaces';
 import { UserService } from 'src/app/services/user.service';
 import { countries } from '../../store/country-data-store';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
