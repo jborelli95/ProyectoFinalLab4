@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "username": "Zavilon",
+      "username": "Zavilonasd123as",
       "password": "asdasd",
       "firstName": "Juan Ignacio",
       "lastName": "Borelli",
@@ -12,6 +12,19 @@
       "startedDate": "1/11/2023",
       "favoriteTeam": 0,
       "id": 1
+    },
+    {
+      "username": "juanignacio95",
+      "password": "asd123",
+      "firstName": "Juan",
+      "lastName": "Perez",
+      "email": "test@testing.com",
+      "city": "Andorra la vella",
+      "state": "Buenos Aires",
+      "country": "Australia",
+      "startedDate": "6/11/2023",
+      "favoriteTeam": 0,
+      "id": 2
     }
   ]
 }
