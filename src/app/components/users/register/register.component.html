@@ -1,8 +1,15 @@
 <section class="form-container">
-  <form class="row g-3 form-visuals" [formGroup]="form" (ngSubmit)="registrarUsuarioHttp()">
+  <form class="row g-3 form-visuals needs-validation" [formGroup]="form" (ngSubmit)="registrarUsuarioHttp()">
     <div class="col-md-6">
       <label for="username" class="col-form-label fs-4">Nombre de usuario</label>
-      <input type="text" class="form-control fs-4" id="username" formControlName="username">
+      <input type="text" class="form-control fs-4" id="username" formControlName="username" placeholder="Nombre de usuario..." required>
+      <span class="error" *ngIf="form.controls['username'].getError('required') && form.touched">
+        
+        <div class="invalid-feedback">
+          Error! Campo obligatorio.
+        </div>
+  
+      </span>
     </div>
     <div class="col-md-6">
       <label for="password" class="col-form-label fs-4">Contraseña</label>
@@ -18,7 +25,8 @@
     </div>
     <div class="col-12">
       <label for="email" class="col-form-label fs-4">Email</label>
-      <input type="email" class="form-control fs-4" id="email" placeholder="ejemplo@ejemplo.com" formControlName="email">
+      <input type="email" class="form-control fs-4" id="email" placeholder="ejemplo@ejemplo.com"
+        formControlName="email">
     </div>
     <div class="col-md-4">
       <label for="country" class="col-form-label fs-4">Pais</label>

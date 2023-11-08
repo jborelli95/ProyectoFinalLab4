@@ -1,30 +1,46 @@
 {
   "users": [
     {
-      "username": "Zavilonasd123as",
-      "password": "asdasd",
+      "username": "Zavilon",
+      "password": "asdasd123",
       "firstName": "Juan Ignacio",
       "lastName": "Borelli",
-      "email": "test@testing.com",
+      "email": "jborelli95@gmail.com",
       "city": "Mar del Plata",
       "state": "Buenos Aires",
       "country": "Argentina",
-      "startedDate": "1/11/2023",
+      "startedDate": "8/11/2023",
       "favoriteTeam": 0,
+      "rol": 1,
       "id": 1
     },
     {
-      "username": "juanignacio95",
-      "password": "asd123",
+      "username": "Juancito123",
+      "password": "123456789",
       "firstName": "Juan",
       "lastName": "Perez",
       "email": "test@testing.com",
-      "city": "Andorra la vella",
+      "city": "Miramar",
       "state": "Buenos Aires",
-      "country": "Australia",
-      "startedDate": "6/11/2023",
+      "country": "Argentina",
+      "startedDate": "8/11/2023",
       "favoriteTeam": 0,
+      "rol": 1,
       "id": 2
+    },
+    {
+      "username": "Jorge",
+      "password": "456123",
+      "firstName": "Jorge",
+      "lastName": "Test",
+      "email": "jorge@gmail.com",
+      "city": "Ciudad de la pampa",
+      "state": "La Pampa",
+      "country": "Argentina",
+      "startedDate": "8/11/2023",
+      "favoriteTeam": 0,
+      "rol": 1,
+      "id": 3
     }
   ]
 }
