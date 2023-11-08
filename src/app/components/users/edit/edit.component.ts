@@ -14,6 +14,8 @@ export class EditComponent implements OnInit {
 
   countriesList: Countrie[] = countries;
 
+  submitted = false;
+
   form: FormGroup = this.fb.group({
     username: "",
     password: "",
@@ -25,6 +27,7 @@ export class EditComponent implements OnInit {
     country: "",
     startedDate: "",
     favoriteTeam: 0,
+    rol: 0,
     id: 0
   })
 
@@ -58,6 +61,7 @@ export class EditComponent implements OnInit {
                   country: [user.country],
                   startedDate: [user.startedDate],
                   favoriteTeam: [user.favoriteTeam],
+                  rol: [user.rol],
                   id: [user.id]
                 })
               }
@@ -87,6 +91,7 @@ export class EditComponent implements OnInit {
       country: this.form.controls["country"].value,
       startedDate: this.form.controls["startedDate"].value,
       favoriteTeam: this.form.controls["favoriteTeam"].value,
+      rol: 1,
       id: this.form.controls["id"].value
     }
 

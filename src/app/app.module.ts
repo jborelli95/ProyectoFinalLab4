@@ -14,6 +14,7 @@ import { LoginComponent } from './components/users/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EditComponent } from './components/users/edit/edit.component';
 import { EditPageComponent } from './pages/users/edit-page/edit-page.component';
+import { TestComponent } from './components/tests/test/test.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { EditPageComponent } from './pages/users/edit-page/edit-page.component';
     InicioComponent,
     LoginComponent,
     EditComponent,
-    EditPageComponent
+    EditPageComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
