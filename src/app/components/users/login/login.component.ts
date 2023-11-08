@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/interfaces/interfaces';
 import { UserService } from 'src/app/services/user.service';
 
@@ -15,8 +15,8 @@ export class LoginComponent {
   }
 
   loginForm:FormGroup = this.formBuilder.group({
-    username:"",
-    password:""
+    username:["",  Validators.required],
+    password:["", Validators.required]
   })
 
   constructor(
@@ -25,7 +25,7 @@ export class LoginComponent {
   ){
 
   }
-
+/*
   iniciarSesion(){
     console.log("El ususasrio que ingreso es: " +this.loginForm.controls["username"].value);
     console.log("La pw que ingreso es: " +this.loginForm.controls["password"].value);
@@ -35,17 +35,42 @@ export class LoginComponent {
           alert("El usuario se encontró")
           this.loginUser.username = this.loginForm.controls["username"].value;
           this.loginUser.password = this.loginForm.controls["password"].value;
-          console.log(this.loginUser);
-
         }else{
-          alert("El usuario no existe")
+          alert("Usuario o contraseña incorrecta")
         };
       },
       error: () => {
-        console.log("Error al logear al usuario!");
+        console.log("Error al logear al usuario en Http get request!");
       }
     })
     
+    setTimeout(()=>{
+      console.log(this.loginUser);
+    },500)
+  }*/
 
+  logIn(){
+    this.validateUser();
+  }
+
+  validateUser(){
+    let userObj;
+
+    this.userService.getUsersHttp().subscribe({
+      next: (usuarios) => {
+        userObj = usuarios.find((user) => this.loginForm.controls["username"].value === user.username);
+        if(userObj != undefined){
+          if(userObj.password === this.loginForm.controls["password"].value){
+            alert("Usuario logeado...")
+          }else{
+            alert("Contraseña incorrecta...")
+          }
+        }else{ 
+          alert("Nombre de usuario inexistente...")
+        }
+      }
+    })
+
+    
   }
 }
