@@ -1,0 +1,39 @@
+footer{
+    background-image: url('../../../../assets/images/footer-champions.jpg');
+    height: 50rem;
+    background-size: cover;
+    display: flex;
+    color: white;
+    justify-content: center;
+}
+.seguidos{
+    margin-top: 20rem;
+    padding-right: 5rem;
+}
+.seguidos h2{
+    font-size: 4rem;
+}
+.seguidos a{
+    margin: 1rem;
+}
+.seguidos a svg{
+    fill: white;
+    width: 44px;
+    height: 44px;
+}
+.politicas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20rem;
+    width: 50%;
+}
+.politicas a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    margin: 5rem;
+}
+.politicas p{
+    text-align: center;
+}
