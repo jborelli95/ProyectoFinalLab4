@@ -11,6 +11,7 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
 import { RegisterComponent } from './components/users/register/register.component';
 import { InicioComponent } from './components/uefa/inicio/inicio.component';
 import { LoginComponent } from './components/users/login/login.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { LoginComponent } from './components/users/login/login.component';
     RegisterComponent,
     InicioComponent,
     LoginComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
