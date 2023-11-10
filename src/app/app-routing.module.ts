@@ -5,6 +5,7 @@ import { RegisterPageComponent } from './pages/users/register-page/register-page
 import { LoginPageComponent } from './pages/users/login-page/login-page.component';
 import { EditPageComponent } from './pages/users/edit-page/edit-page.component';
 import { TestComponent } from './components/tests/test/test.component';
+import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 
 const routes: Routes = [
   {
@@ -28,8 +29,12 @@ const routes: Routes = [
     component:TestComponent
   },
   {
+      path:"not-found",
+      component:NotFoundPageComponent
+  },
+  {
     path:"**",
-    redirectTo:"home"
+    redirectTo:"not-found"
   }
 ];
 
