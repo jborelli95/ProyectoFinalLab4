@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { EditComponent } from './components/users/edit/edit.component';
 import { EditPageComponent } from './pages/users/edit-page/edit-page.component';
 import { TestComponent } from './components/tests/test/test.component';
+import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 
 
 @NgModule({
@@ -31,13 +32,11 @@ import { TestComponent } from './components/tests/test/test.component';
     RegisterComponent,
     InicioComponent,
     LoginComponent,
-
     FooterComponent,
-
     EditComponent,
     EditPageComponent,
-    TestComponent
-
+    TestComponent,
+    NotFoundPageComponent
   ],
   imports: [
     BrowserModule,
