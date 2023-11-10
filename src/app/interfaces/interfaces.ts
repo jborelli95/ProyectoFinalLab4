@@ -10,6 +10,8 @@ export interface User{
     startedDate:string,
     /**Equipo favorito, id del equipo favorito? */
     favoriteTeam:number,
+    /**Agregar un rol al usuario, 1 si es un usario normal, 0 si es admin*/
+    rol:number,
     id:number
 }
 

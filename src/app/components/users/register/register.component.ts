@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Countrie, User } from 'src/app/interfaces/interfaces';
 import { UserService } from 'src/app/services/user.service';
 import { countries } from '../../store/country-data-store';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -16,38 +17,45 @@ export class RegisterComponent implements OnInit {
 
   /**Variabler formulario de grupo, donde vamso a grupar los distontos input desde el formulario html */
   form: FormGroup = this.fb.group({
-    username: "",
-    password: "",
-    firstName: "",
-    lastName: "",
-    email: "",
+    username: ["", Validators.required],
+    password: ["", Validators.required],
+    firstName: ["", Validators.required],
+    lastName: ["", Validators.required],
+    email: ["", Validators.required],
     city: "",
     state: "",
     country: "",
     startedDate: "",
     favoriteTeam: 0,
+    rol: 0,
     id: 0
   })
 
-  /**Variable  donde vamso a usar el get */
-  users:User[] | undefined = []
+  /**Variable  donde vamos a guardar los usuarios, para comparar existencias... */
+  users: User[] = []
 
   /**Variable para la fecha de hoy, es para testear */
-  localDate:string = new Date().toLocaleDateString();
+  localDate: string = new Date().toLocaleDateString();
+
+  /**Variables... */
+  valEmail!: boolean;
+  valUsername!: boolean;
 
   ngOnInit(): void {
-
+    
   }
 
   constructor(
     private fb: FormBuilder,
-    private userService: UserService) {}
+    private userService: UserService,
+    private router: Router) { }
 
-  /**Funcion que registra a un usario */
-  registrarUsuario() {
-    if(this.form.invalid){
+  /**Funcion post usuario Observable */
+  registrarUsuarioHttp() {
+    if (this.form.invalid) {
       return
     }
+
     const u: User = {
       username: this.form.controls["username"].value,
       password: this.form.controls["password"].value,
@@ -59,16 +67,22 @@ export class RegisterComponent implements OnInit {
       country: this.form.controls["country"].value,
       startedDate: new Date().toLocaleDateString(),
       favoriteTeam: 0,
+      rol: 1,
       id: 0
     }
 
-    this.userService.postUser(u);
+    this.userService.postUserHttp(u)
+      .subscribe({
+        next: () => {
+          this.router.navigate(["home"]);
+        },
+
+        error: (err) => {
+          console.log("Error al intentar ingresar un usario!: " + err);
+        }
+      })
+
+    alert("Usuario registrado...");
   }
 
-  /**Funcion que obtiene los usuarios, no sirve acá*/
-  /**Acordate que es asincrono y que estas manejando una ppromesa, suar async y awwit */
-  async mostrarUsuarios(){
-    this.users = await this.userService.getUsers();
-    console.log(this.users);
-  }
 }
