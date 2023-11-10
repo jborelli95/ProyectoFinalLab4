@@ -14,23 +14,44 @@
 }
 
 .momentos-destacados {
-    width: 90%;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas en la primera fila */
+    grid-template-rows: 1fr 1fr 1fr; /* Dos filas de igual tamaño y una fila grande en el medio */
+    gap: 1rem; /* Espacio entre los elementos */
+    padding: 3rem;
+    /* Otros estilos para el contenedor momentos-destacados */
     background-color: rgba(49, 3, 95, 0.685);
     border-radius: 1rem;
 }
 
 .moment {
-    margin: 2rem;
-    border-radius: .2rem;
-    justify-content: center;
-    border: 1px solid white;
+    text-align: center;
+    /* Aumenta el ancho para que ocupe todo el espacio en el grid */
+    width: 100%;
+    color: rgba(49, 3, 95);
+    margin: 2rem auto;
+    padding: 1.5rem;
 }
 
-.moment:hover {
-    transform: scale(1.05); /* Aumenta el tamaño del elemento en un 5% cuando se hace hover */
-    transition: transform 0.3s; /* Agrega una transición suave para que no sea brusco */
+.moment img {
+    /* Establece la anchura de la imagen al 100% para ajustarla al contenedor .moment */
+    width: 100%;
+    height: 40rem;
+    object-fit: cover;
+}
+
+/* Ajusta el estilo del primer elemento grande en la segunda fila */
+.moment:nth-child(3){
+    grid-row: 2;
+    grid-column: span 2; /* Ocupa dos columnas */
+}
+
+.moment:nth-child(6) {
+    grid-row: 4;
+    grid-column: span 2; /* Ocupa dos columnas */
+}
+.moment:nth-child(6) img{
+    object-position: top;
 }
 
 .moment a {
@@ -40,16 +61,26 @@
     background-color: white;
     font-size: 2rem;
     text-decoration: none;
-    color:  rgba(49, 3, 95)    ;
+    color: rgba(49, 3, 95);
+    /* Aplica el borde al enlace en lugar del elemento .moment */
+    border: 1px solid white;
 }
-
-.moment img {
-    max-width: 100%; /* Limita el ancho máximo de la imagen */
+.moment:hover {
+    transform: scale(1.05); /* Aumenta el tamaño del elemento en un 5% cuando se hace hover */
+    transition: transform 0.3s; /* Agrega una transición suave para que no sea brusco */
 }
 .seccion2{
+    display: flex;
+    flex-direction: column;
     background-color: white;
-    height: 20rem;
+    height: 45rem;
     margin: 0;
+    align-items: center;
+}
+.seccion2 h3{
+    font-size: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
 }
 footer{
     background-color: white;
