@@ -7,6 +7,7 @@ import { EditPageComponent } from './pages/users/edit-page/edit-page.component';
 import { TestComponent } from './components/tests/test/test.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { GruposPageComponent } from './pages/navegacion/grupos-page/grupos-page.component';
+import { NoticiasPageComponent } from './pages/navegacion/noticias-page/noticias-page.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path:"grupos",
     component:GruposPageComponent
+  },
+  {
+    path:"noticias",
+    component:NoticiasPageComponent
   },
   {
     path:"login",

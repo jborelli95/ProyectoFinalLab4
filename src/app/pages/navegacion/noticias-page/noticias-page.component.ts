@@ -2,11 +2,11 @@ import { DOCUMENT } from '@angular/common';
 import { Component, ElementRef, Inject, Renderer2 } from '@angular/core';
 
 @Component({
-  selector: 'app-grupos-page',
-  templateUrl: './grupos-page.component.html',
-  styleUrls: ['./grupos-page.component.css']
+  selector: 'app-noticias-page',
+  templateUrl: './noticias-page.component.html',
+  styleUrls: ['./noticias-page.component.css']
 })
-export class GruposPageComponent {
+export class NoticiasPageComponent {
   constructor(
     private renderer: Renderer2,
     private el: ElementRef,

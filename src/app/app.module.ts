@@ -18,6 +18,8 @@ import { TestComponent } from './components/tests/test/test.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { GruposComponent } from './components/uefa/grupos/grupos.component';
 import { GruposPageComponent } from './pages/navegacion/grupos-page/grupos-page.component';
+import { NoticiasComponent } from './components/uefa/noticias/noticias.component';
+import { NoticiasPageComponent } from './pages/navegacion/noticias-page/noticias-page.component';
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { GruposPageComponent } from './pages/navegacion/grupos-page/grupos-page.
     TestComponent,
     NotFoundPageComponent,
     GruposComponent,
-    GruposPageComponent
+    GruposPageComponent,
+    NoticiasComponent,
+    NoticiasPageComponent
   ],
   imports: [
     BrowserModule,
