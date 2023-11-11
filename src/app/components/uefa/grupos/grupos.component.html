@@ -1,0 +1,37 @@
+<main>
+    <section class="grupos">
+        <h1>Grupos</h1>
+        <ng-container *ngFor="let group of data.response; let i = index">
+            <table>
+                <thead>
+                    <tr class="letraGrupo"><th>{{ group.league.standings[i][i].group }}</th></tr>
+                    <tr>
+                        <th></th>
+                        <th>Jugados</th>
+                        <th>Ganados</th>
+                        <th>Empatados</th>
+                        <th>Perdidos</th>
+                        <th>Goles a Favor</th>
+                        <th>Goles en Contra</th>
+                        <th>Diferencia de Goles</th>
+                        <th>Puntos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="equipo" *ngFor="let team of group.league.standings[i]">
+                        <td>{{ team.team.name }}</td>
+                        <td>{{ team.team.name }}</td>
+                        <td>{{ team.all.played }}</td>
+                        <td>{{ team.all.win }}</td>
+                        <td>{{ team.all.draw }}</td>
+                        <td>{{ team.all.lose }}</td>
+                        <td>{{ team.all.goals.for }}</td>
+                        <td>{{ team.all.goals.against }}</td>
+                        <td>{{ team.goalsDiff }}</td>
+                        <td>{{ team.points }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </ng-container>
+    </section>
+</main>
