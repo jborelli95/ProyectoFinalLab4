@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
-import { HomePageComponent } from './pages/home-page/home-page.component';
+import { HomePageComponent } from './pages/navegacion/home-page/home-page.component';
 import { LoginPageComponent } from './pages/users/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/users/register-page/register-page.component';
 import { RegisterComponent } from './components/users/register/register.component';
@@ -16,6 +16,10 @@ import { EditComponent } from './components/users/edit/edit.component';
 import { EditPageComponent } from './pages/users/edit-page/edit-page.component';
 import { TestComponent } from './components/tests/test/test.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { GruposComponent } from './components/uefa/grupos/grupos.component';
+import { GruposPageComponent } from './pages/navegacion/grupos-page/grupos-page.component';
+import { NoticiasComponent } from './components/uefa/noticias/noticias.component';
+import { NoticiasPageComponent } from './pages/navegacion/noticias-page/noticias-page.component';
 
 
 @NgModule({
@@ -32,7 +36,11 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
     EditComponent,
     EditPageComponent,
     TestComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    GruposComponent,
+    GruposPageComponent,
+    NoticiasComponent,
+    NoticiasPageComponent
   ],
   imports: [
     BrowserModule,
