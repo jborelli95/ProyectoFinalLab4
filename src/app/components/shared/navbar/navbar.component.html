@@ -11,30 +11,33 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active text-light" aria-current="page" routerLink="/home">Home</a>
+                        <a class="nav-link active text-light fs-4" aria-current="page" routerLink="/home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active text-light" aria-current="page" routerLink="/home">Ranking</a>
+                        <a class="nav-link active text-light fs-4" aria-current="page" routerLink="/home">Ranking</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active text-light" aria-current="page" routerLink="/calendario">Calendario</a>
+                        <a class="nav-link active text-light fs-4" aria-current="page" routerLink="/calendario">Calendario</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active text-light" aria-current="page" routerLink="/grupos">Grupos</a>
+                        <a class="nav-link active text-light fs-4" aria-current="page" routerLink="/grupos">Grupos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active text-light" aria-current="page" routerLink="/test">Estadisticas</a>
+                        <a class="nav-link active text-light fs-4" aria-current="page" routerLink="/test">Estadisticas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active text-light" aria-current="page" routerLink="/noticias">Noticias</a>
+                        <a class="nav-link active text-light fs-4" aria-current="page" routerLink="/noticias">Noticias</a>
+                    </li>
+                    <li *ngIf="user != undefined">
+                        <h4>{{user.username}}</h4>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-light" routerLink="/register">Register</a>
+                        <a class="nav-link text-light fs-4" routerLink="/register">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class= "nav-link text-light" routerLink="/login">Login</a>
+                        <a class= "nav-link text-light fs-4" routerLink="/login">Login</a>
                     </li>
                 </ul>
             </div>

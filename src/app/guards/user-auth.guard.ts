@@ -8,7 +8,7 @@ import { Observable, tap } from 'rxjs';
 function check():boolean | Observable<boolean>{
   const authService = inject(AuthService);
   const router = inject(Router);
-  let user: User | undefined = authService.getCurrentUser();
+  const user: User | undefined = authService.getCurrentUser();
 
   return authService.checkStatusAuthentication().pipe(
     tap(isAuth => {
