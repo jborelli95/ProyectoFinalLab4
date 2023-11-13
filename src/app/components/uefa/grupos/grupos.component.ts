@@ -7,6 +7,7 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./grupos.component.css']
 })
 export class GruposComponent implements OnInit {
+[x: string]: any;
   constructor(private apiService: ApiService) {}
 
   data: any;
@@ -20,5 +21,4 @@ export class GruposComponent implements OnInit {
       console.log(data);
     });
   }
-
   }

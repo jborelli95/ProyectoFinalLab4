@@ -8,6 +8,7 @@ import { TestComponent } from './components/tests/test/test.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { GruposPageComponent } from './pages/navegacion/grupos-page/grupos-page.component';
 import { NoticiasPageComponent } from './pages/navegacion/noticias-page/noticias-page.component';
+import { CalendarioPageComponent } from './pages/navegacion/calendario-page/calendario-page.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path:"noticias",
     component:NoticiasPageComponent
+  },
+  {
+    path:"calendario",
+    component:CalendarioPageComponent
   },
   {
     path:"login",

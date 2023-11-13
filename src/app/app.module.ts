@@ -20,6 +20,8 @@ import { GruposComponent } from './components/uefa/grupos/grupos.component';
 import { GruposPageComponent } from './pages/navegacion/grupos-page/grupos-page.component';
 import { NoticiasComponent } from './components/uefa/noticias/noticias.component';
 import { NoticiasPageComponent } from './pages/navegacion/noticias-page/noticias-page.component';
+import { CalendarioComponent } from './components/uefa/calendario/calendario.component';
+import { CalendarioPageComponent } from './pages/navegacion/calendario-page/calendario-page.component';
 
 
 @NgModule({
@@ -40,7 +42,9 @@ import { NoticiasPageComponent } from './pages/navegacion/noticias-page/noticias
     GruposComponent,
     GruposPageComponent,
     NoticiasComponent,
-    NoticiasPageComponent
+    NoticiasPageComponent,
+    CalendarioComponent,
+    CalendarioPageComponent
   ],
   imports: [
     BrowserModule,

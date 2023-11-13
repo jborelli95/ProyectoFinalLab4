@@ -15,7 +15,7 @@ export class GruposPageComponent {
   
   ngOnInit() {
     // Establecer el fondo como blanco
-    this.renderer.setStyle(this.document.body, 'background-color', 'white');
+    this.renderer.setStyle(this.document.body, 'background-color', 'rgb(212, 212, 230)');
     this.renderer.setStyle(this.document.body, 'background-image', 'none'); // Asegurarse de que no haya una imagen de fondo
     this.renderer.setStyle(this.document.body, 'background-size', 'cover');
     this.renderer.setStyle(this.document.body, 'background-repeat', 'no-repeat');
