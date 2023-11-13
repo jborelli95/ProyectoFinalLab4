@@ -41,6 +41,20 @@
       "favoriteTeam": 0,
       "rol": 1,
       "id": 3
+    },
+    {
+      "username": "Valen",
+      "password": "123",
+      "firstName": "Valentina",
+      "lastName": "Perez",
+      "email": "Valen123@gmail.com",
+      "city": "Mendoza",
+      "state": "Mendoza",
+      "country": "Argentina",
+      "startedDate": "13/11/2023",
+      "favoriteTeam": 0,
+      "rol": 1,
+      "id": 4
     }
   ]
 }
