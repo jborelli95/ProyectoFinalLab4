@@ -11,23 +11,28 @@ import { NoticiasPageComponent } from './pages/navegacion/noticias-page/noticias
 import { CalendarioPageComponent } from './pages/navegacion/calendario-page/calendario-page.component';
 import { userAuthGuard } from './guards/user-auth.guard';
 import { loginGuard } from './guards/login.guard';
+import { homeGuard } from './guards/home.guard';
 
 const routes: Routes = [
   {
     path:"home",
-    component:HomePageComponent
+    component:HomePageComponent,
+    canActivate:[homeGuard]
   },
   {
     path:"grupos",
-    component:GruposPageComponent
+    component:GruposPageComponent,
+    canActivate:[userAuthGuard]
   },
   {
     path:"noticias",
-    component:NoticiasPageComponent
+    component:NoticiasPageComponent,
+    canActivate:[userAuthGuard]
   },
   {
     path:"calendario",
-    component:CalendarioPageComponent
+    component:CalendarioPageComponent,
+    canActivate:[userAuthGuard]
   },
   {
     path:"login",

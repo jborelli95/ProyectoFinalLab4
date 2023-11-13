@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { User } from 'src/app/interfaces/interfaces';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-test',
@@ -9,8 +11,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class TestComponent implements OnInit{  
 
   form!:FormGroup;
+  user:User | undefined = this.authService.getCurrentUser();
 
-  constructor(private fB:FormBuilder){
+  constructor(
+    private fB:FormBuilder,
+    private authService:AuthService){
     
   }
 
@@ -20,6 +25,8 @@ export class TestComponent implements OnInit{
       apellido: ["", Validators.required],
       cb: [false, Validators.requiredTrue]
     })
+
+    console.log("User: ", this.user);
   }
 
   formSubmit(){

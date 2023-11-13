@@ -50,31 +50,6 @@ export class AuthService {
     })
   }
 
-  /*checkStatusAuthentication(): Observable<boolean> {
-    try {
-      const token = localStorage.getItem("token");
-      console.log("token: ", token);
-      if (!token) {
-        return of(false); 
-      }
-
-      return this.http.get<User>(this.urlUsers.concat(`/${Number(token)}`))
-        .pipe(
-          tap(u => this.userObj = u),
-          map(u => {
-            console.log("respuesta: ", !!u);
-            return !!u;
-          }),
-          catchError(err => of(false))
-        )
-
-      
-    } catch (err) {
-      console.log(err);
-    }
-    throw ("Error checkStatusAuthentication en AuthService!");
-  }*/
-
   checkStatusAuthentication(): Observable<boolean> {
       const token = localStorage.getItem("token");
       console.log("token: ", token);
@@ -87,6 +62,11 @@ export class AuthService {
           catchError(err => of(false))
         )
       }
+  }
+
+  logOut(){
+    this.userObj = undefined;
+    localStorage.clear();
   }
 
 }
