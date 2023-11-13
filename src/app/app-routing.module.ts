@@ -9,6 +9,8 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 import { GruposPageComponent } from './pages/navegacion/grupos-page/grupos-page.component';
 import { NoticiasPageComponent } from './pages/navegacion/noticias-page/noticias-page.component';
 import { CalendarioPageComponent } from './pages/navegacion/calendario-page/calendario-page.component';
+import { userAuthGuard } from './guards/user-auth.guard';
+import { loginGuard } from './guards/login.guard';
 
 const routes: Routes = [
   {
@@ -29,7 +31,8 @@ const routes: Routes = [
   },
   {
     path:"login",
-    component:LoginPageComponent
+    component:LoginPageComponent,
+    canActivate:[loginGuard]
   },
   {
     path:"register",
@@ -41,11 +44,17 @@ const routes: Routes = [
   },
   {
     path:"test",
-    component:TestComponent
+    component:TestComponent,
+    canActivate:[userAuthGuard]
   },
   {
       path:"not-found",
       component:NotFoundPageComponent
+  },
+  {
+    path:"",
+    redirectTo:"home",
+    pathMatch:"full"
   },
   {
     path:"**",

@@ -4,29 +4,29 @@ import { Router } from '@angular/router';
 import { environments } from 'src/environments/environments';
 import { UserService } from './user.service';
 import { User } from '../interfaces/interfaces';
-import { Observable, flatMap, of, retry } from 'rxjs';
+import { Observable, catchError, flatMap, map, of, retry, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  //private urlUser:string = environments.baseUrl.concat("/users");
+  private urlUsers: string = environments.baseUrl.concat("/users");
   //**atributo de este objeto donde vmaos a guardar el usuario logeado */
   private userObj?: User;
 
   constructor(
-    //private http:HttpClient,
+    private http: HttpClient,
     private router: Router,
     private userService: UserService
   ) { }
 
   getCurrentUser(): User | undefined {
-    if (this.userObj != undefined) {
-      /**Clonamos el dato, la idea es que siempre manjemos una copia del usuario */
-      return structuredClone(this.userObj);
-    } else {
+    if (!this.userObj) {
       return undefined;
+    } else {
+      /**Clonamos el dato, la idea es que siempre manejemos una copia del usuario */
+      return { ...this.userObj }
     }
   }
 
@@ -38,7 +38,7 @@ export class AuthService {
           if (user.password === password) {
             this.userObj = user;
             localStorage.setItem("token", user.id.toString());
-            this.router.navigate(["home"]);
+            this.router.navigate(["test"]);
             alert("Usuario logeado...");
           } else {
             alert("Contraseña incorrecta...")
@@ -50,27 +50,45 @@ export class AuthService {
     })
   }
 
-  checkStatusAuthentication(): Observable<boolean> {
+  /*checkStatusAuthentication(): Observable<boolean> {
     try {
       const token = localStorage.getItem("token");
-      if (token) {
-        this.userService.getUserHttp(Number(token)).subscribe({
-          next: (user) => {
-            this.userObj = user;
-            return true;
-          },
-          error: () => {
-            console.log("Error en el observador getUserhhtp authService!");
-          }
-        })
-      } else {
-        return of(false);
+      console.log("token: ", token);
+      if (!token) {
+        return of(false); 
       }
+
+      return this.http.get<User>(this.urlUsers.concat(`/${Number(token)}`))
+        .pipe(
+          tap(u => this.userObj = u),
+          map(u => {
+            console.log("respuesta: ", !!u);
+            return !!u;
+          }),
+          catchError(err => of(false))
+        )
+
+      
     } catch (err) {
       console.log(err);
     }
     throw ("Error checkStatusAuthentication en AuthService!");
+  }*/
+
+  checkStatusAuthentication(): Observable<boolean> {
+      const token = localStorage.getItem("token");
+      console.log("token: ", token);
+      if (!token) {
+        return of(false);
+      } else {
+        return this.http.get<User>(this.urlUsers.concat(`/${token}`)).pipe(
+          tap(u => this.userObj = u),
+          map(u => !!u),
+          catchError(err => of(false))
+        )
+      }
   }
+
 }
 
 

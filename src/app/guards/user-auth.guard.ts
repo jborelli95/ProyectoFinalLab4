@@ -2,16 +2,22 @@ import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { User } from '../interfaces/interfaces';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
-/**La funcion tiene que devolver un booleano... */
-export const userAuthGuard: CanActivateFn = (route, state) => {
 
+function check():boolean | Observable<boolean>{
   const authService = inject(AuthService);
   const router = inject(Router);
+  let user: User | undefined = authService.getCurrentUser();
 
-  const user: User | undefined = authService.getCurrentUser();
-  const validation: boolean = authService.checkStatusAuthentication();
-
-  return true
-};
+  return authService.checkStatusAuthentication().pipe(
+    tap(isAuth => {
+      if(!isAuth){
+        router.navigate(['/login'])
+      }
+    })
+  )
+}
+export const userAuthGuard: CanActivateFn = (route, state) => {
+  return check();
+}
