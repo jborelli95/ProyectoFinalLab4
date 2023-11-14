@@ -1,0 +1,64 @@
+#user-section{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+    margin-bottom: 10rem;
+}
+
+#user-display{
+    width: 30%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 2rem;
+}
+
+.username-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+   /** margin-top: 2rem;*/
+    background-image: url("../../../../assets/images/ucl-image-ultimatestage-gallery-01.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50rem;
+    width: 100%;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    height: 10rem;
+}
+
+.username-img h3{
+    margin-left: 1rem;
+    color: white;
+}
+
+.username-img a{
+    margin-left: .5rem;
+    color: white;
+}
+
+.username-img a:hover{
+    color: blue;
+}
+.circle
+  {
+    border-radius: 50%;
+    width: 6rem;
+    height: 6rem;
+    background-color: orange;
+    background-image: url("../../../../assets/images/defaultProfilePic.jpg");
+    background-position: center;
+    background-size: 6rem;
+  }
+
+  .user-information{
+    color: red;
+  }
+
+  .cell-pad{
+    padding: 1rem;
+  }

@@ -31,7 +31,7 @@
     <div class="col-md-4">
       <label for="country" class="col-form-label fs-4">Pais</label>
       <select id="country" class="form-select fs-4" formControlName="country">
-        <option selected>Elige un país...</option>
+        <option disabled selected value>Elige un país...</option>
         <option *ngFor="let country of countriesList" [value]="country.name">{{country.name}}</option>
       </select>
     </div>

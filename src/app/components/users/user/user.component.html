@@ -1,0 +1,145 @@
+<section id="user-section">
+    <div id="user-display">
+        <div class="username-img">
+            <div class="circle">
+            </div>
+            <h3>Welcome! {{user?.username}}</h3>
+        </div>
+
+        <div *ngIf="editPerfil === false">
+            <div class="container text-center" *ngIf="verPerfil === true">
+                <div class="row">
+                    <div class="col cell-pad">
+                        Username: @{{user?.username}}
+                        <a class="btn" (click)="setEditarPerfil()" style="color: blue; padding-left: 0px; border-left: 0px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+                                class="bi bi-pencil-square" viewBox="0 0 16 16" style="margin-left: .5rem;">
+                                <path
+                                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                <path fill-rule="evenodd"
+                                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col cell-pad">
+                        Email: {{user?.email}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col cell-pad">
+                        Nombre: {{user?.firstName}}
+                    </div>
+                    <div class="col cell-pad">
+                        Apellido: {{user?.lastName}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col cell-pad">
+                        Localidad: {{user?.city}}
+                    </div>
+                    <div class="col cell-pad">
+                        Provincia: {{user?.state}}
+                    </div>
+                    <div class="col cell-pad">
+                        Pais: {{user?.country}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col cell-pad">
+                        Equipo favorito: {{user?.favoriteTeam}}
+                    </div>
+                    <div class="col cell-pad">
+                        Miembro desde: {{user?.startedDate}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col cell-pad">
+                        <a class="btn btn-primary" (click)="setVerPerfil()">Volver</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container text-center" *ngIf="verPerfil === false">
+                <div class="row">
+                    <div class="col cell-pad">
+                        Username: @{{user?.username}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col cell-pad">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque voluptate explicabo dolorum culpa
+                        incidunt reiciendis totam ex deserunt alias veritatis est beatae sed nesciunt perspiciatis
+                        voluptatum, dolorem earum, quo eaque!
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col cell-pad">
+                        <a class="btn btn-primary" (click)="setVerPerfil()">Ver perfil</a>
+                    </div>
+                    <div class="col cell-pad">
+                        Miembro desde: {{user?.startedDate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="editPerfil === true" style="margin-left: 1rem; margin-right: 1rem;">
+            <form class="mt-2" [formGroup]="editForm" (ngSubmit)="editarUsuarioHttp()">
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="col-form-label" for="username">Username: </label>
+                        <input type="text" class="form-control" id="username" formControlName="username">
+                    </div>
+                    <div class="col">
+                        <label class="col-form-label" for="email">Email: </label>
+                        <input type="text" class="form-control" id="email" formControlName="email">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="col-form-label" for="firstName">Nombre: </label>
+                        <input type="text" class="form-control" id="firstName" formControlName="firstName">
+                    </div>
+                    <div class="col">
+                        <label class="col-form-label" for="lastName">Apellido: </label>
+                        <input type="text" class="form-control" id="lastName" formControlName="lastName">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <div class="col">
+                            <label class="col-form-label" for="city">Localidad: </label>
+                            <input type="text" class="form-control" id="city" formControlName="city">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="col">
+                            <label class="col-form-label" for="state">Provincia: </label>
+                            <input type="text" class="form-control" id="state" formControlName="state">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="col">
+                            <label class="col-form-label" for="country">Pais: </label>
+                            <select id="country" class="form-select" formControlName="country">
+                                <option disabled selected value>Elige un país...</option>
+                                <option *ngFor="let country of countriesList" [value]="country.name">{{country.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col" style="display: flex; justify-content: center;">
+                        <button type="submit" class="btn btn-primary">Editar</button>
+                    </div>
+                    <div class="col" style="display: flex; justify-content: center;">
+                        <a type="submit" class="btn btn-primary" (click)="setEditarPerfil()">Cancelar</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

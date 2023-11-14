@@ -1,13 +1,18 @@
 <section class="form-container">
-    <form class="form-visuals" [formGroup]="loginForm" (ngSubmit)="logIn()">
-        <div class="mb-3">
-          <label for="username" class="form-label fs-3">Nombre de usuario</label>
-          <input type="text" class="form-control fs-3" id="username" formControlName="username">
-        </div>
-        <div class="mb-3">
-          <label for="password" class="form-label fs-3">Contraseña</label>
-          <input type="password" class="form-control fs-3" id="password" formControlName="password">
-        </div>
-        <button type="submit" class="btn btn-primary fs-3">Iniciar Sesion</button>
-      </form>
+  <form class="form-visuals" [formGroup]="loginForm" (ngSubmit)="logIn()" style="padding-top: 1rem;">
+    <div>
+      <h3>Creación de Usuario</h3>
+    </div>
+    <div class="mb-3">
+      <label for="username" class="form-label fs-3">Nombre de usuario</label>
+      <input type="text" class="form-control fs-3" id="username" formControlName="username">
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label fs-3">Contraseña</label>
+      <input type="password" class="form-control fs-3" id="password" formControlName="password">
+    </div>
+    <button type="submit" class="btn btn-primary fs-3">Iniciar Sesion</button>
+    <p style="display: flex; justify-content: center; margin-top: 10px;">No tenes una cuenta? <a routerLink="/register"
+        style="padding-left: 5px;">Registrate!!!</a></p>
+  </form>
 </section>
