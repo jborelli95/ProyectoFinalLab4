@@ -12,7 +12,6 @@ import { InicioComponent } from './components/uefa/inicio/inicio.component';
 import { LoginComponent } from './components/users/login/login.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
-import { EditComponent } from './components/users/edit/edit.component';
 import { EditPageComponent } from './pages/users/edit-page/edit-page.component';
 import { TestComponent } from './components/tests/test/test.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
@@ -22,6 +21,8 @@ import { NoticiasComponent } from './components/uefa/noticias/noticias.component
 import { NoticiasPageComponent } from './pages/navegacion/noticias-page/noticias-page.component';
 import { CalendarioComponent } from './components/uefa/calendario/calendario.component';
 import { CalendarioPageComponent } from './pages/navegacion/calendario-page/calendario-page.component';
+import { UserPageComponent } from './pages/users/user-page/user-page.component';
+import { UserComponent } from './components/users/user/user.component';
 
 
 @NgModule({
@@ -35,7 +36,6 @@ import { CalendarioPageComponent } from './pages/navegacion/calendario-page/cale
     InicioComponent,
     LoginComponent,
     FooterComponent,
-    EditComponent,
     EditPageComponent,
     TestComponent,
     NotFoundPageComponent,
@@ -44,7 +44,9 @@ import { CalendarioPageComponent } from './pages/navegacion/calendario-page/cale
     NoticiasComponent,
     NoticiasPageComponent,
     CalendarioComponent,
-    CalendarioPageComponent
+    CalendarioPageComponent,
+    UserPageComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

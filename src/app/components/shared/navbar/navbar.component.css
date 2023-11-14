@@ -2,3 +2,13 @@
     margin-left: 3rem ;
     margin-right: 3rem ;
 }
+
+.nav-user{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.icon-container{
+    color: white;
+}

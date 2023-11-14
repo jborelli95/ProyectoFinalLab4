@@ -12,6 +12,7 @@ import { CalendarioPageComponent } from './pages/navegacion/calendario-page/cale
 import { userAuthGuard } from './guards/user-auth.guard';
 import { loginGuard } from './guards/login.guard';
 import { homeGuard } from './guards/home.guard';
+import { UserPageComponent } from './pages/users/user-page/user-page.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,11 @@ const routes: Routes = [
   {
     path:"grupos",
     component:GruposPageComponent,
+    canActivate:[userAuthGuard]
+  },
+  {
+    path:"user",
+    component:UserPageComponent,
     canActivate:[userAuthGuard]
   },
   {

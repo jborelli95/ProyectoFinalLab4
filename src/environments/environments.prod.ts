@@ -1,3 +1,3 @@
 export const environments = {
-    baseUrl: "http://pagina.net",
+    baseUrl: "http://localhost:4000",
 }

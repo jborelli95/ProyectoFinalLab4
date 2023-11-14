@@ -38,8 +38,8 @@ export class AuthService {
           if (user.password === password) {
             this.userObj = user;
             localStorage.setItem("token", user.id.toString());
-            this.router.navigate(["test"]);
-            alert("Usuario logeado...");
+            this.router.navigate(["home"]);
+            alert("Usuario logeado correctamente...");
           } else {
             alert("Contraseña incorrecta...")
           }
