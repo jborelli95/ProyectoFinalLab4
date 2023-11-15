@@ -12,7 +12,6 @@ import { InicioComponent } from './components/uefa/inicio/inicio.component';
 import { LoginComponent } from './components/users/login/login.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
-import { EditPageComponent } from './pages/users/edit-page/edit-page.component';
 import { TestComponent } from './components/tests/test/test.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { GruposComponent } from './components/uefa/grupos/grupos.component';
@@ -36,7 +35,6 @@ import { UserComponent } from './components/users/user/user.component';
     InicioComponent,
     LoginComponent,
     FooterComponent,
-    EditPageComponent,
     TestComponent,
     NotFoundPageComponent,
     GruposComponent,
