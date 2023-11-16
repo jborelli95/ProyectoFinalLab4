@@ -1,22 +1,39 @@
-<!--<section id="table-container">
-    <table class="table team-table">
-        <thead>
-          <tr>
-            <th scope="col">Logo</th>
-            <th scope="col">Nombre del equipo</th>
-            <th scope="col">Abreviación</th>
-            <th scope="col">País</th>
-            <th scope="col">Localidad</th>
-          </tr>
-        </thead>
-        <tbody class="table-group-divider">
-          <tr *ngFor="let team of dataFromApi.response[0]">
-            <td><img src="../../../../assets/logo/uefa.png" alt="Imagen random"></td>
-            <td>{{team.team.name}}</td>
-            <td>{{team.code}}</td>
-            <td>{{team.team.country}}</td>
-            <td>{{team.venue.city}}</td>
-          </tr>
-        </tbody>
-      </table>
-</section>-->
+<section id="table-container">
+  <table class="table team-table">
+    <thead>
+      <tr>
+        <th scope="col">Logo</th>
+        <th scope="col">Nombre del equipo</th>
+        <th scope="col">Abreviación</th>
+        <th scope="col">País</th>
+        <th scope="col">Localidad</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr *ngFor="let data of dataFromApi">
+        <td></td>
+        <td><img src="../../../../assets/logo/uefa.png" alt="Imagen random"></td>
+        <!--<td><img src="{{data.team.logo}}" alt="Imagen random"></td>-->
+        <td>{{data.team.name}}</td>
+        <td>
+          <div *ngIf="data.team.code === null">
+            ...
+          </div>
+          <div *ngIf="data.team.code !== null">
+            {{data.team.code}}
+          </div>
+        </td>
+        <td>{{data.team.country}}</td>
+        <td>{{data.venue.city}}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<div>
+  <button (click)="loadData()">Load data</button>
+</div>
+
+<div>
+  <button (click)="test()">Show data</button>
+</div>
