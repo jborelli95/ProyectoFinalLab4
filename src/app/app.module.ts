@@ -22,6 +22,7 @@ import { CalendarioComponent } from './components/uefa/calendario/calendario.com
 import { CalendarioPageComponent } from './pages/navegacion/calendario-page/calendario-page.component';
 import { UserPageComponent } from './pages/users/user-page/user-page.component';
 import { UserComponent } from './components/users/user/user.component';
+import { EstadisticasPageComponent } from './pages/navegacion/estadisticas-page/estadisticas-page.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { UserComponent } from './components/users/user/user.component';
     CalendarioComponent,
     CalendarioPageComponent,
     UserPageComponent,
-    UserComponent
+    UserComponent,
+    EstadisticasPageComponent
   ],
   imports: [
     BrowserModule,

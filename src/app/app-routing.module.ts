@@ -12,6 +12,7 @@ import { userAuthGuard } from './guards/user-auth.guard';
 import { loginGuard } from './guards/login.guard';
 import { homeGuard } from './guards/home.guard';
 import { UserPageComponent } from './pages/users/user-page/user-page.component';
+import { EstadisticasPageComponent } from './pages/navegacion/estadisticas-page/estadisticas-page.component';
 
 const routes: Routes = [
   {
@@ -49,8 +50,8 @@ const routes: Routes = [
     component:RegisterPageComponent
   },
   {
-    path:"test",
-    component:TestComponent,
+    path:"estadisticas",
+    component:EstadisticasPageComponent,
     canActivate:[userAuthGuard]
   },
   {
