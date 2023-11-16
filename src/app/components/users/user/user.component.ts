@@ -95,4 +95,9 @@ export class UserComponent implements OnInit {
       }
     })
   }
+
+  cerrarSesion(){
+    this.authService.logOut();
+    this.router.navigate(["home"]);
+  }
 }

@@ -13,6 +13,10 @@ td img{
     width: 4rem;
     height: 4rem;
 }
+td a{
+    text-decoration: none;
+    color: black
+}
 
 th{
     text-align: center;

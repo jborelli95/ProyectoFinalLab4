@@ -15,7 +15,10 @@ export class ApiService {
   //private apiKey = '183bf0b254f74d82ce22f458d27007dd';
 
   /**Api key de Juan */
-  private apiKey = '19756ffe17dee2fa6d046d0ccff19d55';
+  //private apiKey = '19756ffe17dee2fa6d046d0ccff19d55';
+  //**Api key de Juan 2 */
+  private apiKey = '401fee78d97a2865fe3cdaea0b0d099a';
+
 
   constructor(private http: HttpClient) { }
 

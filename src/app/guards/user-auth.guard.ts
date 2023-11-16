@@ -13,6 +13,7 @@ function check():boolean | Observable<boolean>{
   return authService.checkStatusAuthentication().pipe(
     tap(isAuth => {
       if(!isAuth){
+        alert("Debes estar logeado para entrar a esta seccion de la página...")
         router.navigate(['/login'])
       }
     })

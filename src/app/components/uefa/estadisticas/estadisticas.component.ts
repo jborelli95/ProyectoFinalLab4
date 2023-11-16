@@ -24,7 +24,7 @@ export class EstadisticasComponent {
   ngOnInit(): void {
     this.router.params.subscribe(param => {
       this.TeamId = +param["id"];
-      //this.loadData();
+      this.loadData();
     })
 
     this.test();
@@ -51,13 +51,9 @@ export class EstadisticasComponent {
     let sum = 0;
     if(this.dataFromApi.response.cards.yellow["0-15"].total !== null){
       sum += this.dataFromApi.response.cards.yellow["0-15"].total;
-    }
-    console.log(`index:[0-15]`);
-
+    };
     for (let i = 15; i < 120; i+= 15) {
-      console.log(`index:[${i+1}-${i+15}]`);
       if(this.dataFromApi.response.cards.yellow[`${i+1}-${i+15}`].total !== null){
-        console.log(`Entro  en [${i+1}-${i+15}]`);
         sum += this.dataFromApi.response.cards.yellow[`${i+1}-${i+15}`].total;
       }
     }
