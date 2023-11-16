@@ -13,6 +13,8 @@ import { loginGuard } from './guards/login.guard';
 import { homeGuard } from './guards/home.guard';
 import { UserPageComponent } from './pages/users/user-page/user-page.component';
 import { EstadisticasPageComponent } from './pages/navegacion/estadisticas-page/estadisticas-page.component';
+import { ListadoComponent } from './components/uefa/listado/listado.component';
+import { ListadoPageComponent } from './pages/navegacion/listado-page/listado-page.component';
 
 const routes: Routes = [
   {
@@ -51,6 +53,11 @@ const routes: Routes = [
   },
   {
     path:"estadisticas",
+    component:ListadoPageComponent,
+    canActivate:[userAuthGuard]
+  },
+  {
+    path:"estadisticas/:id",
     component:EstadisticasPageComponent,
     canActivate:[userAuthGuard]
   },

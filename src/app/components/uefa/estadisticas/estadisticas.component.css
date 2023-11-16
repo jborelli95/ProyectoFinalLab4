@@ -1,0 +1,59 @@
+#Info-team-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+#info-team{
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    align-items: center;
+}
+
+#team-title{
+    display: flex;
+    flex-direction: row;
+    margin-left: 3rem;
+    align-items: center;
+}
+
+#team-title h2{
+    margin-left: 1.5rem;
+}
+
+#logo-team img{
+    width: 6rem;
+    height: 6rem;
+}
+
+#estadisticas{
+
+}
+
+.color{
+    background-image: url("../../../../assets/images/test.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 8rem;
+    width: 100%;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    display: flex;
+    
+}
+
+.color2{
+    background-color: rgb(33, 40, 253);
+    height: 2rem;
+    width: 100%;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}
+
+#team-title{
+    color: white;
+}

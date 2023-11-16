@@ -1,0 +1,23 @@
+#table-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.team-table{
+    width: 80%;
+}
+
+td img{
+    width: 4rem;
+    height: 4rem;
+}
+
+th{
+    text-align: center;
+}
+
+td{
+    text-align: center;
+}

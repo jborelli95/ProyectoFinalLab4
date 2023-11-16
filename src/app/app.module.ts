@@ -23,6 +23,9 @@ import { CalendarioPageComponent } from './pages/navegacion/calendario-page/cale
 import { UserPageComponent } from './pages/users/user-page/user-page.component';
 import { UserComponent } from './components/users/user/user.component';
 import { EstadisticasPageComponent } from './pages/navegacion/estadisticas-page/estadisticas-page.component';
+import { EstadisticasComponent } from './components/uefa/estadisticas/estadisticas.component';
+import { ListadoPageComponent } from './pages/navegacion/listado-page/listado-page.component';
+import { ListadoComponent } from './components/uefa/listado/listado.component';
 
 
 @NgModule({
@@ -46,7 +49,10 @@ import { EstadisticasPageComponent } from './pages/navegacion/estadisticas-page/
     CalendarioPageComponent,
     UserPageComponent,
     UserComponent,
-    EstadisticasPageComponent
+    EstadisticasPageComponent,
+    EstadisticasComponent,
+    ListadoPageComponent,
+    ListadoComponent
   ],
   imports: [
     BrowserModule,
