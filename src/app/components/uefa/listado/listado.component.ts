@@ -16,7 +16,8 @@ export class ListadoComponent implements OnInit{
   constructor(
     private authService:AuthService,
     private apiService:ApiService,
-    private router:Router){}
+    //private router:Router
+    ){}
 
   ngOnInit(): void {
     //this.loadData();
@@ -24,13 +25,19 @@ export class ListadoComponent implements OnInit{
 
   loadData(){
     this.apiService.getTeamsUEFA().subscribe({
-      next:(teams) => {
-        this.dataFromApi = teams;
-        console.log(this.dataFromApi);
+      next:(data) => {
+        this.dataFromApi = data.response;
+        //console.log(this.dataFromApi);
       },
       error:() => {
         console.log("Error al cargar los equipos de la UEFA...");
       }
     })
+  }
+
+  test(){
+    console.log("Dta form api: ", this.dataFromApi);
+    console.log("index 0: ", this.dataFromApi[0]);
+    console.log("Nmae del index 0", this.dataFromApi[0].team.name);
   }
 }
