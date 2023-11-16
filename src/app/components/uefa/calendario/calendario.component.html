@@ -1,17 +1,36 @@
 <main>
-    <div id="wg-api-football-games"
-     data-host="v3.football.api-sports.io"
-     data-key="183bf0b254f74d82ce22f458d27007dd"
-     data-date=""
-     data-league="2"
-     data-season="2023"
-     data-theme=""
-     data-refresh="15"
-     data-show-toolbar="true"
-     data-show-errors="false"
-     data-show-logos="true"
-     data-modal-game="true"
-     data-modal-standings="true"
-     data-modal-show-logos="true">
-</div>
+    <h1 class="tit">Todos los partidos</h1>
+    <section class="seccion1">
+        <ng-container *ngFor="let item of data.response">
+            <div class="contenedor-partido">
+                <h1>{{item.fixture.status.short}}</h1>
+                <div class="subcontenedor">
+                    <div class="equipo">
+                    <div class="logo">
+                        <img src="https://media.api-sports.io/football/teams/{{item.teams.home.id}}.png" alt="" width="70px" height="70px">
+                    </div>
+                    <h2>{{item.teams.home.name}}</h2>
+                    <div class="goles">
+                        <h2>{{item.goals.home}}</h2>
+                    </div>
+                </div>
+                <div class="versus">
+                    <h1>VS</h1>
+                </div>
+                <div class="equipo">
+                    <div class="logo">
+                        <img src="https://media.api-sports.io/football/teams/{{item.teams.away.id}}.png" alt="" width="70px" height="70px">
+                    </div>
+                    <h2>{{item.teams.away.name}}</h2>
+                    <div class="goles">
+                        <h2>{{item.goals.away}}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="ronda">
+                <h1>{{item.league.round}}</h1>
+            </div>
+        </div>
+    </ng-container>
+</section>
 </main>

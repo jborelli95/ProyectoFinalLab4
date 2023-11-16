@@ -1,0 +1,52 @@
+.tit{
+    text-align: center;
+    font-size: 4rem;
+    color: rgba(49, 3, 95);
+}
+.seccion1{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: .5rem;
+}
+.contenedor-partido{
+    display: flex;
+    flex-direction: column ;
+    align-items: center;
+    color: white;
+    background-image: url("../../../../assets/images/fondo-champions.jpg");
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    margin: 3rem;
+    padding: 2rem;
+}
+.contenedor-partido:hover {
+    transform: scale(1.05); 
+    transition: transform 0.3s; 
+}
+.subcontenedor{
+    display: flex;
+    justify-content: center;
+}
+.equipo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
+    margin: 2rem;
+}
+.logo{
+    margin-bottom: 1rem;
+}
+.equipo h2{
+    font-size: 2rem;
+}
+.versus{
+    margin-top: 5rem;
+}
+.goles{
+    margin-top: 1rem;
+    background-color:black;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 1.5rem;
+}
