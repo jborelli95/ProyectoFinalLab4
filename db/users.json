@@ -55,6 +55,20 @@
       "favoriteTeam": 0,
       "rol": 1,
       "id": 4
+    },
+    {
+      "username": "ariharbouki",
+      "password": "123456789",
+      "firstName": "Ariel",
+      "lastName": "Harbouki",
+      "email": "arielharbo.219@gmail.com",
+      "city": "Mar del Plata",
+      "state": "Buenos Aires",
+      "country": "Argentina",
+      "startedDate": "15/11/2023",
+      "favoriteTeam": 0,
+      "rol": 1,
+      "id": 5
     }
   ]
 }
