@@ -4,11 +4,30 @@
     flex-direction: column;
     align-items: center;
 }
-
+.botones{
+    display: flex;
+    margin-bottom: 5rem;
+}
+.botones button{
+    font-size: 2rem;
+}
 .team-table{
     width: 80%;
 }
-
+.buscador{
+    width: 30%;
+    margin-bottom: 2rem;
+}
+.buscador input{
+    font-size: 2rem;
+}
+.mensaje{
+    margin-top: 5rem;
+    margin-left: 55rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 td img{
     width: 4rem;
     height: 4rem;
@@ -19,9 +38,11 @@ td a{
 }
 
 th{
+    font-size: 2rem;
     text-align: center;
 }
 
 td{
+    font-size: 2rem;
     text-align: center;
 }
