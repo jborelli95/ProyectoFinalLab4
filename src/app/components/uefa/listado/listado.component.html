@@ -1,16 +1,20 @@
 <section id="table-container">
+  <div class="buscador">
+    <input type="text" class="form-control mb-2" placeholder="Buscar por nombre o país" #txtSearch (keyup)="onSearchEquipo(txtSearch.value)"/>
+  </div>
+
   <table class="table team-table">
     <thead>
       <tr>
-        <th scope="col">Logo</th>
-        <th scope="col">Nombre del equipo</th>
-        <th scope="col">Abreviación</th>
-        <th scope="col">País</th>
-        <th scope="col">Localidad</th>
+        <th scope="col" [ngStyle]="{'width': '100px'}">Logo</th>
+        <th scope="col" [ngStyle]="{'width': '100px'}">Nombre del equipo</th>
+        <th scope="col" [ngStyle]="{'width': '100px'}">Abreviación</th>
+        <th scope="col" [ngStyle]="{'width': '100px'}">País</th>
+        <th scope="col" [ngStyle]="{'width': '100px'}">Localidad</th>
       </tr>
     </thead>
     <tbody class="table-group-divider">
-      <tr *ngFor="let data of dataFromApi">
+      <tr *ngFor="let data of dataFromApi | listado:page:search">
         <td><a routerLink="/estadisticas/{{data.team.id}}"><img src="{{data.team.logo}}" alt="Imagen random"></a></td>
         <td><a routerLink="/estadisticas/{{data.team.id}}">{{data.team.name}}</a></td>
         <td>
@@ -25,13 +29,24 @@
         <td>{{data.venue.city}}</td>
       </tr>
     </tbody>
+    <div class="mensaje" *ngIf="(dataFromApi | listado:page:search).length === 0">
+      <div class="card text-center p-1">
+        <div class="card-header fs-2">
+          Ultima pagina
+        </div>
+        <div class="card-body">
+          <p class="card-text fs-2">No hay mas equipos para ver</p>
+        </div>
+      </div>
+    </div>
   </table>
+  <div class="botones">
+    <button class="btn btn-primary" (click)="prevPage()">
+      Anterior
+    </button>
+    &nbsp;
+    <button class="btn btn-primary" (click)="nextPage()" [disabled]="(dataFromApi | listado:page:search).length === 0">
+      Siguiente
+    </button>
+  </div>
 </section>
-
-<div>
-  <button (click)="loadData()">Load data</button>
-</div>
-
-<div>
-  <button (click)="test()">Show data</button>
-</div>
