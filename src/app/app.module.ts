@@ -26,6 +26,7 @@ import { EstadisticasPageComponent } from './pages/navegacion/estadisticas-page/
 import { EstadisticasComponent } from './components/uefa/estadisticas/estadisticas.component';
 import { ListadoPageComponent } from './pages/navegacion/listado-page/listado-page.component';
 import { ListadoComponent } from './components/uefa/listado/listado.component';
+import { ListadoPipe } from './pipes/listado.pipe';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { ListadoComponent } from './components/uefa/listado/listado.component';
     EstadisticasPageComponent,
     EstadisticasComponent,
     ListadoPageComponent,
-    ListadoComponent
+    ListadoComponent,
+    ListadoPipe,
   ],
   imports: [
     BrowserModule,
