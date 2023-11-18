@@ -7,7 +7,7 @@
 }
 
 #user-display{
-    width: 30%;
+    width: 40%;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -24,11 +24,11 @@
     background-image: url("../../../../assets/images/ucl-image-ultimatestage-gallery-01.jpg");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 50rem;
+    background-size: 80rem;
     width: 100%;
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
-    height: 10rem;
+    height: 15rem;
 }
 
 .username-img h3{

@@ -69,6 +69,20 @@
       "favoriteTeam": 0,
       "rol": 1,
       "id": 5
+    },
+    {
+      "username": "Matias",
+      "password": "asdasd123",
+      "firstName": "Matias",
+      "lastName": "Borelli",
+      "email": "matias@gmail.com",
+      "city": "",
+      "state": "",
+      "country": "",
+      "startedDate": "18/11/2023",
+      "favoriteTeam": 0,
+      "rol": 1,
+      "id": 6
     }
   ]
 }
