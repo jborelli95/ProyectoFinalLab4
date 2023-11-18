@@ -103,14 +103,14 @@ export class RegisterComponent implements OnInit {
         })
   
       alert("Usuario registrado...");
-    },500)
+    },1000)
 
   }
 
-
-  test(){
-    this.submitted = true;
-    console.log("hola");
+  reset(){
+    this.submitted = false;
+    this.unmatchPw = false;
+    this.nameRepited = false;
   }
 
 }

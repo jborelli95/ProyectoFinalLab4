@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/interfaces/interfaces';
 import { ApiService } from 'src/app/services/api.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-estadisticas',
@@ -13,11 +14,15 @@ export class EstadisticasComponent {
   user:User | undefined = this.authService.getCurrentUser();
   dataFromApi!:any;
   TeamId!:number;
+  favoriteTeam:boolean = false;
 
   constructor(
     private authService:AuthService,
     private apiService:ApiService,
-    private router:ActivatedRoute){
+    private router:ActivatedRoute,
+    private userService:UserService,
+    private router2:Router
+    ){
     
   }
 
@@ -25,9 +30,9 @@ export class EstadisticasComponent {
     this.router.params.subscribe(param => {
       this.TeamId = +param["id"];
       this.loadData();
-    })
 
-    this.test();
+      console.log("User logeado: ", this.user);
+    })
   }
 
   loadData(){
@@ -76,14 +81,18 @@ export class EstadisticasComponent {
     return sum;
   }
 
-  test(){
-    this.apiService.getTeamsUEFA().subscribe({
-      next:(teams)=>{
-        console.log(teams);
-      },
-      error:()=>{
-        console.log("Error get teams api UEFA");
-      }
-    })
+  setFavoriteTeam(){
+    if(this.user != undefined){
+      this.user.favoriteTeam = this.TeamId;
+      
+      this.userService.putUserHttp(this.user).subscribe({
+        next:()=>{
+          alert("Favorito agregado correctamente...");
+          this.router2.navigate([`/estadisticas/${this.TeamId}`])
+        }
+      })
+      return
+    }
   }
+  
 }

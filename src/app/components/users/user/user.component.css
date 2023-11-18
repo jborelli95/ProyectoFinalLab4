@@ -4,6 +4,7 @@
     justify-content: center;
     margin-top: 5rem;
     margin-bottom: 10rem;
+    font-size: 1.4rem;
 }
 
 #user-display{
@@ -34,6 +35,7 @@
 .username-img h3{
     margin-left: 1rem;
     color: white;
+    font-size: 2.5rem;
 }
 
 .username-img a{
@@ -61,4 +63,13 @@
 
   .cell-pad{
     padding: 1rem;
+  }
+
+  form, input{
+    font-size: 1.5rem;
+  }
+
+  button, a{
+
+    font-size: 1.2rem;
   }

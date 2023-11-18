@@ -68,3 +68,23 @@
 h6{
     font-size: 1.5rem;
 }
+
+.start1{
+    display: flex;
+    position: absolute;
+}
+
+.star1 a{
+    text-decoration: none;
+    color: black;
+}
+
+.star2{
+    display: flex;
+    position: absolute;
+}
+
+.star2 a{
+    color: gold;
+    text-decoration: none;
+}
