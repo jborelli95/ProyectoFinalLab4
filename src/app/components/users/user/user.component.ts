@@ -15,6 +15,10 @@ import { Router } from '@angular/router';
 export class UserComponent implements OnInit {
 
   user: User | undefined = this.authService.getCurrentUser();
+<<<<<<< Updated upstream
+=======
+  /**Variables que nos ayuda que vista msoitrar al usuario */
+>>>>>>> Stashed changes
   verPerfil: boolean = false;
   editPerfil:boolean = false;
   countriesList: Countrie[] = countries;
@@ -34,6 +38,15 @@ export class UserComponent implements OnInit {
     id: this.user?.id,
   })
 
+<<<<<<< Updated upstream
+=======
+  /**Variables que utilizamos para validar el formulario */
+  submitted:boolean = false;
+  unmatchPw:boolean = false;
+  nameRepited:boolean = false;
+  users:User [] | undefined;
+
+>>>>>>> Stashed changes
   constructor(
     private authService: AuthService,
     private formBuilder: FormBuilder,

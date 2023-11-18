@@ -24,7 +24,13 @@ export class EstadisticasComponent {
   ngOnInit(): void {
     this.router.params.subscribe(param => {
       this.TeamId = +param["id"];
+<<<<<<< Updated upstream
       //this.loadData();
+=======
+      this.loadData();
+      //this.loadDataSquad();
+      console.log("User logeado: ", this.user);
+>>>>>>> Stashed changes
     })
 
     this.test();
@@ -42,6 +48,18 @@ export class EstadisticasComponent {
       }
     })
   }
+  loadDataSquad() {
+    this.apiService.getSquads(this.TeamId).subscribe({
+      next: (data) => {
+        this.dataFromApi = data;
+        console.log(this.dataFromApi);
+      },
+      error: () => {
+        console.log("Error en la peticion custom de la api");
+      }
+    })
+  }
+
 
   mostrarData(){
     console.log(this.dataFromApi);
