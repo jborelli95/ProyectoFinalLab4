@@ -12,66 +12,65 @@ import { loginGuard } from './guards/login.guard';
 import { homeGuard } from './guards/home.guard';
 import { UserPageComponent } from './pages/users/user-page/user-page.component';
 import { EstadisticasPageComponent } from './pages/navegacion/estadisticas-page/estadisticas-page.component';
-import { ListadoComponent } from './components/uefa/listado/listado.component';
 import { ListadoPageComponent } from './pages/navegacion/listado-page/listado-page.component';
 
 const routes: Routes = [
   {
-    path:"home",
-    component:HomePageComponent,
-    canActivate:[homeGuard]
+    path: "home",
+    component: HomePageComponent,
+    canActivate: [homeGuard]
   },
   {
-    path:"grupos",
-    component:GruposPageComponent,
-    canActivate:[userAuthGuard]
+    path: "grupos",
+    component: GruposPageComponent,
+    canActivate: [userAuthGuard]
   },
   {
-    path:"user",
-    component:UserPageComponent,
-    canActivate:[userAuthGuard]
+    path: "user",
+    component: UserPageComponent,
+    canActivate: [userAuthGuard]
   },
   {
-    path:"noticias",
-    component:NoticiasPageComponent,
-    canActivate:[userAuthGuard]
+    path: "noticias",
+    component: NoticiasPageComponent,
+    canActivate: [userAuthGuard]
   },
   {
-    path:"calendario",
-    component:CalendarioPageComponent,
-    canActivate:[userAuthGuard]
+    path: "calendario",
+    component: CalendarioPageComponent,
+    canActivate: [userAuthGuard]
   },
   {
-    path:"login",
-    component:LoginPageComponent,
-    canActivate:[loginGuard]
+    path: "login",
+    component: LoginPageComponent,
+    canActivate: [loginGuard]
   },
   {
-    path:"register",
-    component:RegisterPageComponent
+    path: "register",
+    component: RegisterPageComponent
   },
   {
-    path:"estadisticas",
-    component:ListadoPageComponent,
-    canActivate:[userAuthGuard]
+    path: "estadisticas",
+    component: ListadoPageComponent,
+    canActivate: [userAuthGuard]
   },
   {
-    path:"estadisticas/:id",
-    component:EstadisticasPageComponent,
-    canActivate:[userAuthGuard]
+    path: "estadisticas/:id",
+    component: EstadisticasPageComponent,
+    canActivate: [userAuthGuard]
   },
   {
-      path:"not-found",
-      component:NotFoundPageComponent
+    path: "not-found",
+    component: NotFoundPageComponent
   },
   {
-    path:"",
-    redirectTo:"home",
-    pathMatch:"full"
+    path: "",
+    redirectTo: "home",
+    pathMatch: "full"
   },
   {
-    path:"**",
-    redirectTo:"not-found"
+    path: "**",
+    redirectTo: "not-found"
   }
 ];
 

@@ -49,6 +49,8 @@ export class RegisterComponent implements OnInit {
   /**Funcion post usuario Observable */
   registrarUsuarioHttp() {
     this.submitted = true;
+    this.unmatchPw = false;
+    this.nameRepited = false;
 
     if (this.form.invalid) {
       return
