@@ -19,6 +19,7 @@ export class RegisterComponent implements OnInit {
   form: FormGroup = this.fb.group({
     username: ["", Validators.required],
     password: ["", Validators.required],
+    password2:["", Validators.required],
     firstName: ["", Validators.required],
     lastName: ["", Validators.required],
     email: ["", Validators.required],
@@ -31,15 +32,10 @@ export class RegisterComponent implements OnInit {
     id: 0
   })
 
-  /**Variable  donde vamos a guardar los usuarios, para comparar existencias... */
-  users: User[] = []
-
-  /**Variable para la fecha de hoy, es para testear */
-  localDate: string = new Date().toLocaleDateString();
-
-  /**Variables... */
-  valEmail!: boolean;
-  valUsername!: boolean;
+  submitted:boolean = false;
+  unmatchPw:boolean = false;
+  nameRepited:boolean = false;
+  users:User [] | undefined;
 
   ngOnInit(): void {
     
@@ -52,37 +48,67 @@ export class RegisterComponent implements OnInit {
 
   /**Funcion post usuario Observable */
   registrarUsuarioHttp() {
+    this.submitted = true;
+
     if (this.form.invalid) {
       return
     }
-
-    const u: User = {
-      username: this.form.controls["username"].value,
-      password: this.form.controls["password"].value,
-      firstName: this.form.controls["firstName"].value,
-      lastName: this.form.controls["lastName"].value,
-      email: this.form.controls["email"].value,
-      city: this.form.controls["city"].value,
-      state: this.form.controls["state"].value,
-      country: this.form.controls["country"].value,
-      startedDate: new Date().toLocaleDateString(),
-      favoriteTeam: 0,
-      rol: 1,
-      id: 0
+    
+    if(this.form.controls['password'].value !== this.form.controls['password2'].value){
+      this.unmatchPw = true;
+      return
     }
 
-    this.userService.postUserHttp(u)
-      .subscribe({
-        next: () => {
-          this.router.navigate(["home"]);
-        },
+    this.userService.getUsersHttp().subscribe({
+      next: (usuarios) => {
+        this.users = usuarios;
+      },
+      error: () => {
+        console.log("Error al traer los usuarios");
+      }
+    })
 
-        error: (err) => {
-          console.log("Error al intentar ingresar un usario!: " + err);
-        }
-      })
+    setTimeout(()=>{
+      if(this.users?.find((u) => u.username === this.form.controls['username'].value) !== undefined){
+        this.nameRepited = true;
+        return
+      }
+      
+      const u: User = {
+        username: this.form.controls["username"].value,
+        password: this.form.controls["password"].value,
+        firstName: this.form.controls["firstName"].value,
+        lastName: this.form.controls["lastName"].value,
+        email: this.form.controls["email"].value,
+        city: this.form.controls["city"].value,
+        state: this.form.controls["state"].value,
+        country: this.form.controls["country"].value,
+        startedDate: new Date().toLocaleDateString(),
+        favoriteTeam: 0,
+        rol: 1,
+        id: 0
+      }
+  
+      this.userService.postUserHttp(u)
+        .subscribe({
+          next: () => {
+            this.router.navigate(["home"]);
+          },
+  
+          error: (err) => {
+            console.log("Error al intentar ingresar un usario!: " + err);
+          }
+        })
+  
+      alert("Usuario registrado...");
+    },500)
 
-    alert("Usuario registrado...");
+  }
+
+
+  test(){
+    this.submitted = true;
+    console.log("hola");
   }
 
 }
