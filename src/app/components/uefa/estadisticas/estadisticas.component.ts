@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/interfaces/interfaces';
 import { ApiService } from 'src/app/services/api.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-estadisticas',
@@ -12,28 +13,27 @@ import { AuthService } from 'src/app/services/auth.service';
 export class EstadisticasComponent {
   user:User | undefined = this.authService.getCurrentUser();
   dataFromApi!:any;
+  dataFromApiSquad!:any;
   TeamId!:number;
+  favoriteTeam: boolean = false;
 
   constructor(
     private authService:AuthService,
     private apiService:ApiService,
-    private router:ActivatedRoute){
-    
+    private router:ActivatedRoute,
+    private userService: UserService,
+    private router2: Router)
+    {
+      
   }
 
   ngOnInit(): void {
     this.router.params.subscribe(param => {
       this.TeamId = +param["id"];
-<<<<<<< Updated upstream
-      //this.loadData();
-=======
       this.loadData();
-      //this.loadDataSquad();
+      this.loadDataSquad();
       console.log("User logeado: ", this.user);
->>>>>>> Stashed changes
     })
-
-    this.test();
   }
 
   loadData(){
@@ -48,11 +48,12 @@ export class EstadisticasComponent {
       }
     })
   }
+
   loadDataSquad() {
     this.apiService.getSquads(this.TeamId).subscribe({
       next: (data) => {
-        this.dataFromApi = data;
-        console.log(this.dataFromApi);
+        this.dataFromApiSquad = data;
+        console.log(this.dataFromApiSquad);
       },
       error: () => {
         console.log("Error en la peticion custom de la api");
@@ -97,15 +98,28 @@ export class EstadisticasComponent {
     
     return sum;
   }
+  setFavoriteTeam() {
+    if (this.user != undefined) {
 
-  test(){
-    this.apiService.getTeamsUEFA().subscribe({
-      next:(teams)=>{
-        console.log(teams);
-      },
-      error:()=>{
-        console.log("Error get teams api UEFA");
+      if (this.user.favoriteTeam !== this.TeamId) {
+        this.user.favoriteTeam = this.TeamId;
+
+        this.userService.putUserHttp(this.user).subscribe({
+          next: () => {
+            alert("Favorito agregado correctamente...");
+          }
+        })
+
+        return;
       }
-    })
+
+      this.user.favoriteTeam = 0;
+      this.userService.putUserHttp(this.user).subscribe({
+        next: () => {
+          alert("Se elimino el equipo de favoritos...");
+        }
+      })
+      return;
+    }
   }
 }
