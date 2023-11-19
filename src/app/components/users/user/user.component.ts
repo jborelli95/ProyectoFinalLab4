@@ -15,7 +15,6 @@ export class UserComponent implements OnInit {
 
   /**Variable donde guardamos el usuario logeado */
   user: User | undefined = this.authService.getCurrentUser();
-
   /**Variables que nos ayuda que vista msoitrar al usuario */
   verPerfil: boolean = false;
   editPerfil:boolean = false;
@@ -36,7 +35,6 @@ export class UserComponent implements OnInit {
     id: this.user?.id,
   })
 
-  /**Vartiables que utilizamos para validar el formulario */
   submitted:boolean = false;
   unmatchPw:boolean = false;
   nameRepited:boolean = false;

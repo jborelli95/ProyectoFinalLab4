@@ -10,7 +10,8 @@ export class ApiService {
   private apiUrlF = 'https://v3.football.api-sports.io/fixtures';
   private apiUrlTeams = 'https://v3.football.api-sports.io/teams?league=2&season=2023';
   private apiUrlPlayers = 'https://v3.football.api-sports.io/players?league=2&season=2023';
-  private apiUrlTeamsStatics = 'https://v3.football.api-sports.io/teams/statistics'
+  private apiUrlTeamsStatics = 'https://v3.football.api-sports.io/teams/statistics';
+  private apiUrlSquad = 'https://v3.football.api-sports.io/players/squads';
   //**Api key de Ari */
   //private apiKey = '183bf0b254f74d82ce22f458d27007dd';
 
@@ -18,8 +19,7 @@ export class ApiService {
   //private apiKey = '19756ffe17dee2fa6d046d0ccff19d55';
   //**Api key de Juan 2 */
   private apiKey = '401fee78d97a2865fe3cdaea0b0d099a';
-
-
+  
   constructor(private http: HttpClient) { }
 
   getStandings(): Observable<any> {
@@ -113,5 +113,20 @@ export class ApiService {
     };
 
     return this.http.get(this.apiUrlTeamsStatics, { headers, params });
+  }
+
+  getSquads(idTeam:number){
+    const headers = new HttpHeaders({
+      /**la url de api-football */
+      'x-rapidapi-host': 'v3.football.api-sports.io',
+      /**nuestra key vinculada a nuestra cuenta */
+      'x-rapidapi-key': this.apiKey
+    });
+
+    const params = {
+      team: idTeam
+    };
+
+    return this.http.get(this.apiUrlSquad, { headers, params });
   }
 }

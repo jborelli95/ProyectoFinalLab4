@@ -11,26 +11,25 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./estadisticas.component.css']
 })
 export class EstadisticasComponent {
-  user: User | undefined = this.authService.getCurrentUser();
-  dataFromApi!: any;
-  TeamId!: number;
+
+  user:User | undefined = this.authService.getCurrentUser();
+  dataFromApi!:any;
+  dataFromApiSquad!:any;
+  TeamId!:number;
   favoriteTeam: boolean = false;
 
   constructor(
-    private authService: AuthService,
-    private apiService: ApiService,
-    private router: ActivatedRoute,
+    private authService:AuthService,
+    private apiService:ApiService,
+    private router:ActivatedRoute,
     private userService: UserService,
-    private router2: Router
-  ) {
-
-  }
-
+    private router2: Router){}
+ 
   ngOnInit(): void {
     this.router.params.subscribe(param => {
       this.TeamId = +param["id"];
       this.loadData();
-
+      this.loadDataSquad();
       console.log("User logeado: ", this.user);
     })
   }
@@ -48,6 +47,17 @@ export class EstadisticasComponent {
     })
   }
 
+  loadDataSquad() {
+    this.apiService.getSquads(this.TeamId).subscribe({
+      next: (data) => {
+        this.dataFromApiSquad = data;
+        console.log(this.dataFromApiSquad);
+      },
+      error: () => {
+        console.log("Error en la peticion custom de la api");
+      }
+    })
+  }
   mostrarData() {
     console.log(this.dataFromApi);
   }
@@ -80,10 +90,8 @@ export class EstadisticasComponent {
 
     return sum;
   }
-
   setFavoriteTeam() {
     if (this.user != undefined) {
-
       if (this.user.favoriteTeam !== this.TeamId) {
         this.user.favoriteTeam = this.TeamId;
 
@@ -104,7 +112,6 @@ export class EstadisticasComponent {
       })
       return;
     }
-
   }
 }
 

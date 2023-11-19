@@ -21,6 +21,11 @@ footer{
     width: 44px;
     height: 44px;
 }
+.seguidos a svg:hover{
+    fill: rgb(100, 144, 238);
+    width: 44px;
+    height: 44px;
+}
 .politicas{
     display: flex;
     flex-direction: column;

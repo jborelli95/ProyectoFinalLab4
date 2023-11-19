@@ -15,8 +15,8 @@
     </thead>
     <tbody class="table-group-divider">
       <tr *ngFor="let data of dataFromApi | listado:page:search">
-        <td><a routerLink="/estadisticas/{{data.team.id}}" target="_blank"><img src="{{data.team.logo}}" alt="Imagen random"></a></td>
-        <td><a routerLink="/estadisticas/{{data.team.id}}" target="_blank">{{data.team.name}}</a></td>
+        <td><a routerLink="/estadisticas/{{data.team.id}}"><img src="{{data.team.logo}}" alt="Imagen random"></a></td>
+        <td><a routerLink="/estadisticas/{{data.team.id}}">{{data.team.name}}</a></td>
         <td>
           <div *ngIf="data.team.code === null">
             ...
@@ -50,4 +50,3 @@
     </button>
   </div>
 </section>
-
