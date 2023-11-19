@@ -11,6 +11,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./estadisticas.component.css']
 })
 export class EstadisticasComponent {
+
   user:User | undefined = this.authService.getCurrentUser();
   dataFromApi!:any;
   dataFromApiSquad!:any;
@@ -22,11 +23,8 @@ export class EstadisticasComponent {
     private apiService:ApiService,
     private router:ActivatedRoute,
     private userService: UserService,
-    private router2: Router)
-    {
-      
-  }
-
+    private router2: Router){}
+ 
   ngOnInit(): void {
     this.router.params.subscribe(param => {
       this.TeamId = +param["id"];
@@ -36,14 +34,14 @@ export class EstadisticasComponent {
     })
   }
 
-  loadData(){
+  loadData() {
     this.apiService.getTeamStaticsById(this.TeamId).subscribe({
-      next:(data) => {
-        
+      next: (data) => {
+
         this.dataFromApi = data;
         console.log(this.dataFromApi);
       },
-      error:() => {
+      error: () => {
         console.log("Error en la peticion custom de la api");
       }
     })
@@ -60,47 +58,40 @@ export class EstadisticasComponent {
       }
     })
   }
-
-
-  mostrarData(){
+  mostrarData() {
     console.log(this.dataFromApi);
   }
 
-  sumarTarjetasAmarillas(): number{
+  sumarTarjetasAmarillas(): number {
     let sum = 0;
-    if(this.dataFromApi.response.cards.yellow["0-15"].total !== null){
+    if (this.dataFromApi.response.cards.yellow["0-15"].total !== null) {
       sum += this.dataFromApi.response.cards.yellow["0-15"].total;
-    }
-    console.log(`index:[0-15]`);
-
-    for (let i = 15; i < 120; i+= 15) {
-      console.log(`index:[${i+1}-${i+15}]`);
-      if(this.dataFromApi.response.cards.yellow[`${i+1}-${i+15}`].total !== null){
-        console.log(`Entro  en [${i+1}-${i+15}]`);
-        sum += this.dataFromApi.response.cards.yellow[`${i+1}-${i+15}`].total;
+    };
+    for (let i = 15; i < 120; i += 15) {
+      if (this.dataFromApi.response.cards.yellow[`${i + 1}-${i + 15}`].total !== null) {
+        sum += this.dataFromApi.response.cards.yellow[`${i + 1}-${i + 15}`].total;
       }
     }
-    
+
     return sum;
   }
 
-  sumarTarjetasRojas(): number{
+  sumarTarjetasRojas(): number {
     let sum = 0;
-    if(this.dataFromApi.response.cards.red["0-15"].total !== null){
+    if (this.dataFromApi.response.cards.red["0-15"].total !== null) {
       sum += this.dataFromApi.response.cards.red["0-15"].total;
     }
 
-    for (let i = 15; i < 120; i+= 15) {
-      if(this.dataFromApi.response.cards.red[`${i+1}-${i+15}`].total !== null){
-        sum += this.dataFromApi.response.cards.red[`${i+1}-${i+15}`].total;
+    for (let i = 15; i < 120; i += 15) {
+      if (this.dataFromApi.response.cards.red[`${i + 1}-${i + 15}`].total !== null) {
+        sum += this.dataFromApi.response.cards.red[`${i + 1}-${i + 15}`].total;
       }
     }
-    
+
     return sum;
   }
   setFavoriteTeam() {
     if (this.user != undefined) {
-
       if (this.user.favoriteTeam !== this.TeamId) {
         this.user.favoriteTeam = this.TeamId;
 
@@ -123,3 +114,5 @@ export class EstadisticasComponent {
     }
   }
 }
+
+

@@ -38,3 +38,7 @@ th, td {
 .equipo td{
     border-bottom: 1px solid #ddd;
 }
+td a{
+    text-decoration: none;
+    color: black
+}

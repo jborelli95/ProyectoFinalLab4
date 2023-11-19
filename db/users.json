@@ -10,7 +10,7 @@
       "state": "Buenos Aires",
       "country": "Argentina",
       "startedDate": "8/11/2023",
-      "favoriteTeam": 0,
+      "favoriteTeam": 50,
       "rol": 1,
       "id": 1
     },
@@ -69,6 +69,20 @@
       "favoriteTeam": 33,
       "rol": 1,
       "id": 5
+    },
+    {
+      "username": "Matias",
+      "password": "asdasd123",
+      "firstName": "Matias",
+      "lastName": "Borelli",
+      "email": "matias@gmail.com",
+      "city": "Mar del Plata",
+      "state": "Buenos Aires",
+      "country": "Argentina",
+      "startedDate": "18/11/2023",
+      "favoriteTeam": 0,
+      "rol": 1,
+      "id": 6
     }
   ]
 }

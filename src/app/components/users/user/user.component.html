@@ -11,7 +11,8 @@
                 <div class="row">
                     <div class="col cell-pad">
                         Username: @{{user?.username}}
-                        <a class="btn" (click)="setEditarPerfil()" style="color: blue; padding-left: 0px; border-left: 0px;">
+                        <a class="btn" (click)="setEditarPerfil()"
+                            style="color: blue; padding-left: 0px; border-left: 0px;">
                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
                                 class="bi bi-pencil-square" viewBox="0 0 16 16" style="margin-left: .5rem;">
                                 <path
@@ -65,6 +66,10 @@
                     <div class="col cell-pad">
                         <a class="btn btn-primary" (click)="setVerPerfil()">Volver</a>
                     </div>
+
+                    <div class="col cell-pad">
+                        <a class="btn btn-primary" (click)="cerrarSesion()">Cerrar Sesion</a>
+                    </div>
                 </div>
             </div>
 
@@ -98,20 +103,77 @@
                     <div class="col">
                         <label class="col-form-label" for="username">Username: </label>
                         <input type="text" class="form-control" id="username" formControlName="username">
+
+                        <span class="error text-danger"
+                            *ngIf="editForm.controls['username'].getError('required') && (editForm.controls['username'].touched || submitted)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+                                class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                <path
+                                    d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+                            </svg>
+                            Nombre de usuario es requerido!
+                        </span>
+
+                        <span class="error text-danger"
+                            *ngIf=" nameRepited == true && (editForm.controls['username'].touched || submitted)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+                                class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                <path
+                                    d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+                            </svg>
+                            Nombre de usuario ya existente!
+                        </span>
                     </div>
                     <div class="col">
                         <label class="col-form-label" for="email">Email: </label>
                         <input type="text" class="form-control" id="email" formControlName="email">
+
+                        <span class="error text-danger"
+                            *ngIf="editForm.controls['email'].getError('required') && (editForm.controls['email'].touched || submitted)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+                                class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                <path
+                                    d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+                            </svg>
+                            El email es obligatorio!
+                        </span>
+
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col">
                         <label class="col-form-label" for="firstName">Nombre: </label>
                         <input type="text" class="form-control" id="firstName" formControlName="firstName">
+
+                        <span class="error text-danger"
+                            *ngIf="editForm.controls['firstName'].getError('required') && (editForm.controls['firstName'].touched || submitted)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+                                class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                <path
+                                    d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+                            </svg>
+                            El nombre es obligatorio!
+                        </span>
+
                     </div>
                     <div class="col">
                         <label class="col-form-label" for="lastName">Apellido: </label>
                         <input type="text" class="form-control" id="lastName" formControlName="lastName">
+
+                        <span class="error text-danger"
+                            *ngIf="editForm.controls['lastName'].getError('required') && (editForm.controls['lastName'].touched || submitted)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+                                class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                <path
+                                    d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+                            </svg>
+                            El apellido es obligatorio!
+                        </span>
                     </div>
                 </div>
                 <div class="row mb-3">

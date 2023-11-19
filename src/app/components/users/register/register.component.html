@@ -1,50 +1,166 @@
-<section class="form-container">
-  <form class="row g-3 form-visuals needs-validation" [formGroup]="form" (ngSubmit)="registrarUsuarioHttp()">
-    <div class="col-md-6">
-      <label for="username" class="col-form-label fs-4">Nombre de usuario</label>
-      <input type="text" class="form-control fs-4" id="username" formControlName="username" placeholder="Nombre de usuario..." required>
-      <span class="error" *ngIf="form.controls['username'].getError('required') && form.touched">
-        
-        <div class="invalid-feedback">
-          Error! Campo obligatorio.
-        </div>
-  
-      </span>
-    </div>
-    <div class="col-md-6">
-      <label for="password" class="col-form-label fs-4">Contraseña</label>
-      <input type="password" class="form-control fs-4" id="password" formControlName="password">
-    </div>
-    <div class="col-md-6">
-      <label for="firstName" class="col-form-label fs-4">Nombre</label>
-      <input type="text" class="form-control fs-4" id="firstName" formControlName="firstName">
-    </div>
-    <div class="col-md-6">
-      <label for="lastName" class="col-form-label fs-4">Apellido</label>
-      <input type="text" class="form-control fs-4" id="lastName" formControlName="lastName">
-    </div>
-    <div class="col-12">
-      <label for="email" class="col-form-label fs-4">Email</label>
-      <input type="email" class="form-control fs-4" id="email" placeholder="ejemplo@ejemplo.com"
-        formControlName="email">
-    </div>
-    <div class="col-md-4">
-      <label for="country" class="col-form-label fs-4">Pais</label>
-      <select id="country" class="form-select fs-4" formControlName="country">
-        <option disabled selected value>Elige un país...</option>
-        <option *ngFor="let country of countriesList" [value]="country.name">{{country.name}}</option>
-      </select>
-    </div>
-    <div class="col-md-4">
-      <label for="state" class="col-form-label fs-4">Provincia o Estado</label>
-      <input type="text" class="form-control fs-4" id="state" formControlName="state">
-    </div>
-    <div class="col-md-4">
-      <label for="city" class="col-form-label fs-4">Ciudad</label>
-      <input type="text" class="form-control fs-4" id="city" formControlName="city">
-    </div>
-    <div class="col-12">
-      <button type="submit" class="btn btn-primary btn-sm fs-3">Registrarse</button>
-    </div>
-  </form>
+<section id="form-register-container" style="margin-top: 5rem; margin-bottom: 10rem;">
+  <h2 id="form-title">Bienvenido!!!</h2>
+  <div class="container">
+
+    <form class="row g-3 mt-2" [formGroup]="form" (ngSubmit)="registrarUsuarioHttp()">
+      <h3 class="form-center-title">Formulario de registro</h3>
+      <div class="col-md-12">
+        <label for="username" class="form-label">Nombre de usuario:</label>
+        <input type="text" id="username" class="form-control" formControlName="username">
+
+        <span class="error text-danger"
+          *ngIf="form.controls['username'].getError('required') && (form.controls['username'].touched || submitted)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+            class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+            <path
+              d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+          </svg>
+          Nombre de usuario es requerido!
+        </span>
+
+        <span class="error text-danger"
+          *ngIf=" nameRepited == true && (form.controls['username'].touched || submitted)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+            class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+            <path
+              d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+          </svg>
+          Nombre de usuario ya existente!
+        </span>
+
+      </div>
+      <div class="col-md-6">
+        <label for="password" class="form-label">Password:</label>
+        <input type="password" id="password" class="form-control" formControlName="password">
+
+        <span class="error text-danger"
+          *ngIf="form.controls['password'].getError('required') && (form.controls['password'].touched || submitted)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+            class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+            <path
+              d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+          </svg>
+          Es requerido una cosntraseña!
+        </span>
+      </div>
+
+      <div class="col-md-6">
+        <label for="password2" class="form-label">Repeat password:</label>
+        <input type="password" id="password2" class="form-control" formControlName="password2">
+
+        <span class="error text-danger"
+          *ngIf="form.controls['password2'].getError('required') && (form.controls['password2'].touched || submitted)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+            class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+            <path
+              d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+          </svg>
+          Repita la contraseña porfavor!
+        </span>
+
+        <span class="error text-danger" *ngIf=" unmatchPw == true && (form.controls['password2'].touched || submitted)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+            class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+            <path
+              d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+          </svg>
+          Las contraseñas no coinciden!
+        </span>
+
+      </div>
+
+      <div class="col-md-12">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" id="username" class="form-control" placeholder="ejemplo@email.com" formControlName="email">
+
+        <span class="error text-danger"
+          *ngIf="form.controls['email'].getError('required') && (form.controls['email'].touched || submitted)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+            class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+            <path
+              d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+          </svg>
+          El email es obligatorio!
+        </span>
+      </div>
+
+      <div class="col-md-6">
+        <label for="firstName" class="form-label">Nombre:</label>
+        <input type="text" id="firstName" class="form-control" formControlName="firstName">
+
+        <span class="error text-danger"
+          *ngIf="form.controls['firstName'].getError('required') && (form.controls['firstName'].touched || submitted)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+            class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+            <path
+              d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+          </svg>
+          El nombre es obligatorio!
+        </span>
+
+      </div>
+
+      <div class="col-md-6">
+        <label for="lastName" class="form-label">Apellido:</label>
+        <input type="text" id="lastName" class="form-control" formControlName="lastName">
+
+        <span class="error text-danger"
+          *ngIf="form.controls['lastName'].getError('required') && (form.controls['lastName'].touched || submitted)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+            class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+            <path
+              d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+          </svg>
+          El apellido es obligatorio!
+        </span>
+
+      </div>
+
+      <div class="col-md-4">
+        <label for="country" class="form-label">Pais: </label>
+        <select id="country" class="form-select">
+          <option disabled selected value>Elige un país...</option>
+          <option *ngFor="let country of countriesList" [value]="country.name">{{country.name}}
+          </option>
+        </select>
+      </div>
+
+      <div class="col-md-4">
+        <label for="state" class="form-label">Provincia:</label>
+        <input type="text" id="state" class="form-control">
+      </div>
+
+      <div class="col-md-4">
+        <label for="city" class="form-label">Localidad:</label>
+        <input type="text" id="city" class="form-control">
+      </div>
+
+      <div class="col-md-4 form-button">
+        <button class="btn btn-primary" type="submit">Registrarse</button>
+      </div>
+
+      <div class="col-md-4 form-button">
+        <button class="btn btn-primary" type="reset" (click)="reset()">Reiniciar</button>
+      </div>
+
+      <div class="col-md-4 form-button">
+        <button class="btn btn-primary" routerLink="/home">Cancelar</button>
+      </div>
+
+      <div class="col-md-12 mt-5 text-center">
+        <p>Ya tenés una cuenta? <a routerLink="/login">Logeate!!!</a></p>
+      </div>
+    </form>
+  </div>
+  <div class="color">
+
+  </div>
 </section>
