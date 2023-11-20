@@ -13,6 +13,7 @@ import { homeGuard } from './guards/home.guard';
 import { UserPageComponent } from './pages/users/user-page/user-page.component';
 import { EstadisticasPageComponent } from './pages/navegacion/estadisticas-page/estadisticas-page.component';
 import { ListadoPageComponent } from './pages/navegacion/listado-page/listado-page.component';
+import { registerGuard } from './guards/register.guard';
 
 const routes: Routes = [
   {
@@ -47,7 +48,8 @@ const routes: Routes = [
   },
   {
     path: "register",
-    component: RegisterPageComponent
+    component: RegisterPageComponent,
+    canActivate: [registerGuard]
   },
   {
     path: "estadisticas",

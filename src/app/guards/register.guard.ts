@@ -1,7 +1,7 @@
-import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { Observable, map, tap } from 'rxjs';
 import { AuthService } from '../services/auth.service';
+import { Observable, map, tap } from 'rxjs';
+import { inject } from '@angular/core';
 
 function checkUser(): boolean | Observable<boolean>{
   const router = inject(Router);
@@ -17,6 +17,6 @@ function checkUser(): boolean | Observable<boolean>{
   )
 }
 
-export const loginGuard: CanActivateFn = (route, state) => {
+export const registerGuard: CanActivateFn = (route, state) => {
   return checkUser();
 };
