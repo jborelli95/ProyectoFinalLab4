@@ -56,4 +56,12 @@ Utilizando comandos para  el Node Package Manager(npm),
 
 Ya finalizariamos la isntalación.
 
+Luego para poder utilizar la pagina debemos:
+
+1-Ejecutar el comando ng serve
+
+2-Ejecutar el comando npm run json-server (De esta manera se habilita el sistema de registro y logeo)
+
+3-La pagina utiliza una API con 100 request por dia, por lo que en el api.service.ts se encuentran varias claves para utilizar la api. En caso de necesitarlo cambiarla.
+
 
