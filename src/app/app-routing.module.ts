@@ -14,6 +14,7 @@ import { UserPageComponent } from './pages/users/user-page/user-page.component';
 import { EstadisticasPageComponent } from './pages/navegacion/estadisticas-page/estadisticas-page.component';
 import { ListadoPageComponent } from './pages/navegacion/listado-page/listado-page.component';
 import { registerGuard } from './guards/register.guard';
+import { UserListPageComponent } from './pages/users/user-list-page/user-list-page.component';
 
 const routes: Routes = [
   {
@@ -64,6 +65,11 @@ const routes: Routes = [
   {
     path: "not-found",
     component: NotFoundPageComponent
+  },
+  {
+    path: "admin",
+    component: UserListPageComponent,
+    canActivate: [userAuthGuard]
   },
   {
     path: "",

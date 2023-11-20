@@ -1,0 +1,47 @@
+<section id="user-table-container">
+    <!--Rol 0 es el admin y es el que peude ver esto, cosa que habría que hacer con un guard... pero por tiempo no podemos.-->
+    <table id="user-table" class="table" *ngIf="userLoged?.rol === 0">
+        <thead>
+            <tr>
+                <th class="text-center" scope="col">Id</th>
+                <th class="text-center" scope="col">Username</th>
+                <th class="text-center" scope="col">Email</th>
+                <th class="text-center" scope="col">Es admin?</th>
+                <th class="text-center" scope="col">Eliminar</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <th class="text-center" scope="row">{{user.id}}</th>
+                <td class="text-center" scope="row">{{user.username}}</td>
+                <td class="text-center" scope="row">{{user.email}}</td>
+                <td class="text-center" scope="row">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-check" viewBox="0 0 16 16" *ngIf="user.rol === 0" style="color: green;">
+                        <path
+                            d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                    </svg>
+                    <p *ngIf="user.rol === 1">
+                        ...
+                    </p>
+                </td>
+                <td class="delete text-center" scope="col">
+                    <button type="button" class="btn" style="color: red;" (click)="deleteUser(user.id)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor"
+                            class="bi bi-x-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                            <path
+                                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                        </svg>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <div *ngIf="userLoged?.rol === 1" style="margin-top: 15rem; margin-bottom: 30rem;">
+        <h3>Usted no es admin!. Sera redireccionado a otra pagina en 5 segundos...</h3>
+    </div>
+</section>

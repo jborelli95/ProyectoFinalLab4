@@ -11,7 +11,7 @@
       "country": "Argentina",
       "startedDate": "8/11/2023",
       "favoriteTeam": 50,
-      "rol": 1,
+      "rol": 0,
       "id": 1
     },
     {
@@ -67,7 +67,7 @@
       "country": "Argentina",
       "startedDate": "15/11/2023",
       "favoriteTeam": 33,
-      "rol": 1,
+      "rol": 0,
       "id": 5
     },
     {

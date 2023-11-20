@@ -76,7 +76,7 @@
             <div class="container text-center" *ngIf="verPerfil === false">
                 <div class="row">
                     <div class="col cell-pad">
-                        Username: @{{user?.username}}
+                        Username: @{{user?.username}} <p *ngIf="user?.rol === 0" style="color: green;">(Administrador)</p>
                     </div>
                 </div>
                 <div class="row">
@@ -89,6 +89,9 @@
                 <div class="row">
                     <div class="col cell-pad">
                         <a class="btn btn-primary" (click)="setVerPerfil()">Ver perfil</a>
+                    </div>
+                    <div class="col cell-pad" *ngIf="user?.rol === 0">
+                        <a class="btn btn-success" routerLink="/admin">Ver perfiles</a>
                     </div>
                     <div class="col cell-pad">
                         Miembro desde: {{user?.startedDate}}
