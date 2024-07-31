@@ -83,6 +83,20 @@
       "favoriteTeam": 0,
       "rol": 1,
       "id": 6
+    },
+    {
+      "username": "Admin",
+      "password": "admin",
+      "firstName": "Admin",
+      "lastName": "Admin",
+      "email": "Admin@admin.com",
+      "city": "Admin",
+      "state": "Buenos Aires",
+      "country": "Argentina",
+      "startedDate": "31/7/2024",
+      "favoriteTeam": 50,
+      "rol": 0,
+      "id": 7
     }
   ]
 }

@@ -1,16 +1,18 @@
-.tit{
+.tit {
     text-align: center;
     font-size: 4rem;
     color: rgba(49, 3, 95);
 }
-.seccion1{
+
+.seccion1 {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: .5rem;
 }
-.contenedor-partido{
+
+.contenedor-partido {
     display: flex;
-    flex-direction: column ;
+    flex-direction: column;
     align-items: center;
     color: white;
     background-image: url("../../../../assets/images/fondo-champions.jpg");
@@ -19,34 +21,60 @@
     margin: 3rem;
     padding: 2rem;
 }
+
 .contenedor-partido:hover {
-    transform: scale(1.05); 
-    transition: transform 0.3s; 
+    transform: scale(1.05);
+    transition: transform 0.3s;
 }
-.subcontenedor{
+
+.subcontenedor {
     display: flex;
     justify-content: center;
 }
-.equipo{
+
+.equipo {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: justify;
     margin: 2rem;
 }
-.logo{
+
+.logo {
     margin-bottom: 1rem;
 }
-.equipo h2{
+
+.equipo h2 {
     font-size: 2rem;
 }
-.versus{
+
+.versus {
     margin-top: 5rem;
 }
-.goles{
+
+.goles {
     margin-top: 1rem;
-    background-color:black;
+    background-color: black;
     border: 1px solid white;
     border-radius: 10px;
     padding: 1.5rem;
+}
+
+/*Responsive*/
+@media (max-width:1260px) {
+    .seccion1 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width:850px) {
+    .seccion1 {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (max-width:360px) {
+    .contenedor-partido {
+        margin: 0.25rem 0rem 0.25rem 0rem;
+    }
 }

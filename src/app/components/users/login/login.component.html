@@ -1,7 +1,7 @@
 <section class="form-container">
   <form class="form-visuals" [formGroup]="loginForm" (ngSubmit)="logIn()" style="padding-top: 1rem;">
     <div>
-      <h3>Creación de Usuario</h3>
+      <h3>Logeo de Usuario</h3>
     </div>
     <div class="mb-3">
       <label for="username" class="form-label fs-3">Nombre de usuario</label>
@@ -12,7 +12,7 @@
       <input type="password" class="form-control fs-3" id="password" formControlName="password">
     </div>
     <button type="submit" class="btn btn-primary fs-3">Iniciar Sesion</button>
-    <p style="display: flex; justify-content: center; margin-top: 10px;">No tenes una cuenta? <a routerLink="/register"
+    <p style="display: flex; justify-content: center; margin-top: 10px; font-size: 1.5rem;">No tenes una cuenta? <a routerLink="/register"
         style="padding-left: 5px;">Registrate!!!</a></p>
   </form>
 </section>

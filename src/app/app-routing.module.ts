@@ -15,6 +15,7 @@ import { EstadisticasPageComponent } from './pages/navegacion/estadisticas-page/
 import { ListadoPageComponent } from './pages/navegacion/listado-page/listado-page.component';
 import { registerGuard } from './guards/register.guard';
 import { UserListPageComponent } from './pages/users/user-list-page/user-list-page.component';
+import { adminGuardGuard } from './guards/admin.guard.guard';
 
 const routes: Routes = [
   {
@@ -69,7 +70,7 @@ const routes: Routes = [
   {
     path: "admin",
     component: UserListPageComponent,
-    canActivate: [userAuthGuard]
+    canActivate: [adminGuardGuard]
   },
   {
     path: "",

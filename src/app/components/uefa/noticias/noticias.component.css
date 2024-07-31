@@ -6,11 +6,12 @@ section {
     margin-bottom: 10rem;
 }
 
-section h1 {
+.noticias-title {
+    width: 80%;
+    display: flex;
     font-size: 4rem;
-    position: absolute;
-    left: 20rem;
     color: rgba(49, 3, 95);
+    justify-content: flex-start;
 }
 
 .noticias {
@@ -18,7 +19,7 @@ section h1 {
     grid-template-columns: repeat(4, 1fr);
     width: 80%;
     gap: 0.5rem;
-    margin-top: 6rem;
+    margin-top: 2rem;
 }
 
 .noti1,
@@ -100,4 +101,38 @@ section h1 {
 .card img{
     width: 100%;
     height: 20rem;
+}
+
+/*Responsive*/
+@media (max-width:1192px){
+    .noticias{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .noti2:nth-child(1){
+        grid-column: span 2;
+    }
+
+    .noti2 img{
+        width: 100%;
+        height: 50%;
+    }
+}
+
+@media (max-width:669px){
+    .noticias{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .noti2{
+        grid-column: span 2;
+    }
+
+    .noti2 img{
+        height: 80%;
+    }
+
+    .noticias-title{
+        justify-content: center;
+    }
 }

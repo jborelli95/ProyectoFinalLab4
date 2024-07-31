@@ -30,7 +30,7 @@ footer{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20rem;
+    margin-top: 15rem;
     width: 50%;
 }
 .politicas a{
@@ -41,4 +41,45 @@ footer{
 }
 .politicas p{
     text-align: center;
+}
+
+.enlaces{
+    display: flex;
+    flex-direction: row;
+}
+
+/*Rsdponsive*/
+@media (max-width:1308px) {
+    footer{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .seguidos{
+        margin: 0px;
+        padding: 0.5rem;
+    }
+
+    .seguidos h2{
+        display: flex;
+        justify-content: center;
+        padding: 0.5rem;
+    }
+
+    .politicas{
+        width: 90%;
+        margin-top: 0rem;
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width:745px){
+    .enlaces{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .enlaces a{
+        margin: 10px;
+    }
 }

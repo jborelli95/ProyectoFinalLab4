@@ -4,8 +4,15 @@
     flex-direction: column;
     align-items: center;
     font-size: 1.5rem;
-    margin-top: 5rem;
+    margin-top: 3rem;
     margin-bottom: 10rem;
+}
+
+#user-table-container h2{
+    font-size: 2rem;
+    color: green;
+    justify-content: center;
+    margin-bottom: 3rem;
 }
 
 #user-table{
@@ -19,4 +26,20 @@
 h3{
     text-align: center;
     font-size: 3rem;
+}
+
+@media (max-width:991px){
+    #user-table{
+        width: 80%;
+    }
+}
+
+@media (max-width:444px){
+    #user-table{
+        width: 100%;
+    }
+
+    .email{
+        display: none;
+    }
 }

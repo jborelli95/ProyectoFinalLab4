@@ -1,11 +1,12 @@
 <section id="user-table-container">
-    <!--Rol 0 es el admin y es el que peude ver esto, cosa que habría que hacer con un guard... pero por tiempo no podemos.-->
+    <!--Rol 0 es el admin y es el que peude ver esto -->
+    <h2>Función del administrador</h2>
     <table id="user-table" class="table" *ngIf="userLoged?.rol === 0">
         <thead>
             <tr>
                 <th class="text-center" scope="col">Id</th>
                 <th class="text-center" scope="col">Username</th>
-                <th class="text-center" scope="col">Email</th>
+                <th class="text-center email" scope="col">Email</th>
                 <th class="text-center" scope="col">Es admin?</th>
                 <th class="text-center" scope="col">Eliminar</th>
 
@@ -15,7 +16,7 @@
             <tr *ngFor="let user of users">
                 <th class="text-center" scope="row">{{user.id}}</th>
                 <td class="text-center" scope="row">{{user.username}}</td>
-                <td class="text-center" scope="row">{{user.email}}</td>
+                <td class="text-center email" scope="row">{{user.email}}</td>
                 <td class="text-center" scope="row">
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                         class="bi bi-check" viewBox="0 0 16 16" *ngIf="user.rol === 0" style="color: green;">
@@ -48,8 +49,9 @@
         </tbody>
     </table>
 
-    
-    <div *ngIf="userLoged?.rol === 1" style="margin-top: 15rem; margin-bottom: 30rem;">
-        <h3>Usted no es admin!. Sera redireccionado a otra pagina en 5 segundos...</h3>
+    <!--Si no es admin le aparecerá este mensaje y el guard lo mandará a Home-->
+    <div *ngIf="userLoged?.rol === 1" style="margin-top: 5rem; margin-bottom: 10rem;">
+        <h3 style="display:flex; justify-content: center; color: red; text-align: center;">Usted no es admin!. Sera redireccionado al Inicio en 5 segundos...</h3>
     </div>
+
 </section>

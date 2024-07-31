@@ -12,7 +12,7 @@
     font-size: 2rem;
 }
 .team-table{
-    width: 80%;
+    width: 100%;
 }
 .buscador{
     width: 30%;
@@ -45,4 +45,29 @@ th{
 td{
     font-size: 2rem;
     text-align: center;
+}
+
+.table-overflow{
+    width: 80%;
+    margin-bottom: 1rem;
+}
+
+@media (max-width:650px) {
+    .table-overflow{
+        width: 100%;
+    }
+
+    .buscador{
+        width: 50%;
+    }
+}
+
+@media (max-width:511px) {
+    .table-overflow{
+        overflow-x: scroll;
+    }
+
+    .botones{
+        margin-bottom: 2rem;
+    }
 }

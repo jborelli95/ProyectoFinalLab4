@@ -33,11 +33,11 @@ export class UserListComponent implements OnInit {
     })
 
     /**El guard casero */
-    setTimeout(() => {
+    /*setTimeout(() => {
       if (this.userLoged?.rol === 1) {
         this.router.navigate(["home"]);
       }
-    }, 5000)
+    }, 5000)*/
   }
 
   deleteUser(userId: number) {

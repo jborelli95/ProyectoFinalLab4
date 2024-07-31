@@ -18,3 +18,42 @@
 .nav-item-hover:hover {
     transform: scale(1.1); /* Ajusta el factor de escala según tus preferencias */
 }
+
+.user-icon{
+    margin-bottom: 0.25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-name{
+    margin-left: 0px;
+}
+
+/*Responsive*/
+@media (max-width:991px){
+    .menu-button{
+        margin-right: 1rem;
+    }
+
+    .nav-logo{
+        margin-left: 1rem;
+    }
+
+    .nav-links{
+        margin-top: 1.5rem;
+    }
+
+    .nav-item-hover:hover {
+        transform: scale(1.01);
+    }
+
+    .nav-user{
+        justify-content: left;
+        margin-left: 3rem;
+    }
+
+    .user-icon{
+        margin-right: 0.5rem;
+    }
+}

@@ -126,7 +126,7 @@
 
       <div class="col-md-4">
         <label for="country" class="form-label">Pais: </label>
-        <select id="country" class="form-select">
+        <select id="country" class="form-select" formControlName="country">
           <option disabled selected value>Elige un país...</option>
           <option *ngFor="let country of countriesList" [value]="country.name">{{country.name}}
           </option>
@@ -135,12 +135,12 @@
 
       <div class="col-md-4">
         <label for="state" class="form-label">Provincia:</label>
-        <input type="text" id="state" class="form-control">
+        <input type="text" id="state" class="form-control" formControlName="state">
       </div>
 
       <div class="col-md-4">
         <label for="city" class="form-label">Localidad:</label>
-        <input type="text" id="city" class="form-control">
+        <input type="text" id="city" class="form-control" formControlName="city">
       </div>
 
       <div class="col-md-4 form-button">

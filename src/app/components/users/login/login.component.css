@@ -10,6 +10,7 @@ div h3{
     flex-direction: column;
     align-items: center;
     margin-top: 5rem;
+    margin-bottom: 10rem;
 }
 .form-visuals{
     background-color:rgba(49, 3, 95, 0.685);

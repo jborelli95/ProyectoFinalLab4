@@ -1,7 +1,8 @@
 <main>
-    <section class="grupos">
-      <h1>Grupos</h1>
-      <ng-container *ngFor="let group of data.response[0].league.standings">
+  <section class="grupos">
+    <h1>Grupos</h1>
+    <ng-container *ngFor="let group of data.response[0].league.standings">
+      <div class="table-container">
         <table>
           <thead>
             <tr class="letraGrupo">
@@ -23,7 +24,9 @@
           <tbody>
             <ng-container *ngFor="let team of group;">
               <tr class="equipo">
-                <td><a routerLink="/estadisticas/{{team.team.id}}"><img src="https://media.api-sports.io/football/teams/{{team.team.id}}.png" alt="" width="40px" height="40px"></a></td>
+                <td><a routerLink="/estadisticas/{{team.team.id}}"><img
+                      src="https://media.api-sports.io/football/teams/{{team.team.id}}.png" alt="" width="40px"
+                      height="40px"></a></td>
                 <td><a routerLink="/estadisticas/{{team.team.id}}">{{ team.team.name }}</a></td>
                 <td>{{ team.all.played }}</td>
                 <td>{{ team.all.win }}</td>
@@ -37,6 +40,7 @@
             </ng-container>
           </tbody>
         </table>
-      </ng-container>
-    </section>
-  </main>
+      </div>
+    </ng-container>
+  </section>
+</main>

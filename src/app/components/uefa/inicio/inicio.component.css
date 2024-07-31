@@ -1,16 +1,16 @@
-.seccion {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 4rem;
-}
-
-.seccion h2 {
+.container-xxl h2 {
     color: white;
     font-size: 4rem;
-    margin-left: 5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width:490px){
+    .container-xxl h2{
+        margin-left: 10rem;
+        margin-right: 10rem;
+    }
 }
 
 .momentos-destacados {
@@ -31,6 +31,11 @@
     color: rgba(49, 3, 95);
     margin: 2rem auto;
     padding: 1.5rem;
+    border-radius: 2.5rem;
+}
+
+.moment a{
+    border-radius: 2.5rem;
 }
 
 .moment img {
@@ -38,6 +43,7 @@
     width: 100%;
     height: 40rem;
     object-fit: cover;
+    border-radius: 2.5rem 2.5rem 0rem 0rem; 
 }
 
 /* Ajusta el estilo del primer elemento grande en la segunda fila */
@@ -84,4 +90,79 @@
 }
 footer{
     background-color: white;
+}
+
+.caro{
+    width: 560px;
+}
+
+.frame{
+    width: 560px;
+    height: 315px;
+}
+
+/*Responsive*/
+@media (max-width:590px){
+    .frame{
+        width: 500px;
+    }
+    .caro{
+        width: 500px;
+    }
+}
+
+@media (max-width:520px){
+    .frame{
+        width: 400px;
+    }
+    .caro{
+        width: 400px;
+    }
+}
+
+@media (max-width:420px){
+    .frame{
+        width: 250px;
+    }
+    .caro{
+        width: 250px;
+    }
+}
+
+@media (max-width:900px){
+    
+    .moment img {
+        height: 30rem;
+    }
+    
+    .moment:first-child{
+        grid-row: 1;
+        grid-column: span 2; /* Ocupa dos columnas */
+    }
+
+    .moment:nth-child(2){
+        grid-row: 2;
+        grid-column: span 2; /* Ocupa dos columnas */
+    }
+
+    .moment:nth-child(3){
+        grid-row: 3;
+        grid-column: span 2; /* Ocupa dos columnas */
+    }
+
+    .moment:nth-child(4){
+        grid-row: 4;
+        grid-column: span 2; /* Ocupa dos columnas */
+    }
+
+    .moment:nth-child(5){
+        grid-row: 5;
+        grid-column: span 2; /* Ocupa dos columnas */
+    }
+
+    .moment:nth-child(6){
+        grid-row: 6;
+        grid-column: span 2; /* Ocupa dos columnas */
+    }
+
 }

@@ -73,3 +73,23 @@
 
     font-size: 1.2rem;
   }
+
+  /*Responsive*/
+  @media (max-width:991px){
+    #user-display{
+      width: 60%;
+    }
+  }
+
+  @media (max-width:745px){
+    #user-display{
+      width: 80%;
+    }
+  }
+
+  @media (max-width:400px){
+    #user-display{
+      width: 100%;
+      margin: 0rem 0.5rem 0rem 0.5rem;
+    }
+  }
