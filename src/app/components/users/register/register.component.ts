@@ -55,11 +55,6 @@ export class RegisterComponent implements OnInit {
     if (this.form.invalid) {
       return
     }
-    
-    if(this.form.controls['password'].value !== this.form.controls['password2'].value){
-      this.unmatchPw = true;
-      return
-    }
 
     this.userService.getUsersHttp().subscribe({
       next: (usuarios) => {
@@ -73,6 +68,11 @@ export class RegisterComponent implements OnInit {
     setTimeout(()=>{
       if(this.users?.find((u) => u.username === this.form.controls['username'].value) !== undefined){
         this.nameRepited = true;
+        return
+      }
+
+      if(this.form.controls['password'].value !== this.form.controls['password2'].value){
+        this.unmatchPw = true;
         return
       }
       
@@ -103,7 +103,7 @@ export class RegisterComponent implements OnInit {
         })
   
       alert("Usuario registrado...");
-    },1000)
+    },5000)
 
   }
 
