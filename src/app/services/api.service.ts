@@ -46,7 +46,7 @@ export class ApiService {
       league: '2',
       season: '2023',
       from: '2023-09-19',
-      to: '2023-12-13'
+      to: '2024-06-01'
     };
 
     return this.http.get(this.apiUrlF, { headers, params });
